@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+.snowflake {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: -8px;
+}
+
+@-webkit-keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes showMenu {
+  from {
+    left: -600px;
+  }
+  to {
+    left: 100px;
+  }
+}
+@keyframes showMenu {
+  from {
+    left: -600px;
+  }
+  to {
+    left: 100px;
+  }
+}
+@-webkit-keyframes hideMenu {
+  from {
+    left: 100px;
+  }
+  to {
+    left: -600px;
+  }
+}
+@keyframes hideMenu {
+  from {
+    left: 100px;
+  }
+  to {
+    left: -600px;
+  }
+}
+body {
+  height: 100vh;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "Montserrat", sans-serif;
+}
+body header {
+  position: relative;
+  width: 100wh;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+body header .menuBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 30px;
+  padding: 0 5px;
+  height: 50%;
+  background-color: royalblue;
+  color: whitesmoke;
+  border-radius: 50%;
+}
+body header .menu-bar {
+  position: absolute;
+  left: -600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+body header .menu-bar .utils ul {
+  display: flex;
+}
+body header .menu-bar .utils ul li {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  margin-right: 10px;
+}
+body header .menu-bar .utils ul li:nth-child(1) a {
+  color: rosybrown;
+}
+body header .menu-bar .utils ul li:nth-child(2) a {
+  color: royalblue;
+}
+body header .menu-bar .utils ul li:nth-child(3) a {
+  color: tomato;
+}
+body header .menu-bar .utils a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 30px;
+  box-shadow: 1px 1px 5px white;
+  border-radius: 30px;
+}
+body header .menu-bar .snowflakeBtn {
+  width: 60px;
+  height: 30px;
+  background-color: rgb(73, 68, 68);
+  border-radius: 40px;
+}
+body header .menu-bar .snowflakeBtn span {
+  cursor: pointer;
+  margin: auto 0;
+  transition: all 0.5s linear;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(237, 231, 231);
+}
+body header .menu-bar .snowflakeBtn.active {
+  background-color: rgb(237, 231, 231);
+}
+body header .menu-bar .snowflakeBtn.active span {
+  background-color: rgb(35, 27, 27);
+  transform: translateX(30px);
+}
+body header .menu-bar .modeBtn {
+  margin-left: 20px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: black;
+  color: white;
+  width: 120px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+/*# sourceMappingURL=/styles.b61e60ae.css.map */
