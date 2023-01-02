@@ -126,8 +126,8 @@ function onGeoOk(position) {
   fetch(url).then(function (response) {
     return response.json();
   }).then(function (data) {
-    var weather = document.querySelector("#weather span:first-child");
-    var city = document.querySelector("#weather span:last-child");
+    var weather = document.querySelector(".weather span:first-child");
+    var city = document.querySelector(".weather span:last-child");
     weather.innerText = "".concat(data.weather[0].main, " in ").concat(data.name, " (").concat(data.main.temp, "\xB0C) ");
   });
 }
@@ -160,7 +160,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56848" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64303" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

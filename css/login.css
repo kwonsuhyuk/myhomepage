@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMXjk8%2FbtqA57EHwSs%2FrKFe1jzCqczqhfqRfrHv00%2Fimg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 70vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+body form input {
+  color: rgb(43, 42, 42);
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+  border-bottom: 2px solid white;
+  font-size: 20px;
+}
+body form input:focus {
+  border: 5px solid gray;
+}
+body form p {
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+body form h2 {
+  color: white;
+}
+body form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 15%;
+}
+body form div:last-child {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 20%;
+  padding: 10px 0;
+}
+body form div:last-child a {
+  color: black;
+  background-color: white;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 20px;
+}
+body form div:last-child a:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease-in;
+}/*# sourceMappingURL=login.css.map */

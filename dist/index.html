@@ -2,87 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" ,="" initial-scale="1.0&quot;">
-    <link rel="stylesheet" href="/styles.b61e60ae.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <script src="https://kit.fontawesome.com/9daea03348.js" crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="/login.17b12c78.css">
     <link rel="stylesheet" href="/click.c69f20fd.css">
-    <title>Home</title>
-  <script src="/styles.b61e60ae.js"></script><script src="/click.c69f20fd.js"></script></head>
+    <!-- script -->
+    <script defer="" src="/click.87297843.js"></script>
+    <script defer="" src="/login.1860b95e.js"></script>
+    <title>Log in</title>
+  <script src="/login.17b12c78.js"></script><script src="/click.c69f20fd.js"></script><script src="/main.js"></script></head>
   <body>
     <div id="clickEffect"></div>
-
-    <!-- 상단바 -->
-    <header>
-      <div class="menuBtn"></div>
-      <div class="menu-bar">
-        <div class="snowflakeBtn"><span></span></div>
-        <div class="modeBtn"></div>
-        <div class="utils">
-          <ul>
-            <li>
-              <a href="https://music.youtube.com/"><i class="fa-solid fa-music fa-2xl"></i></a>
-            </li>
-            <li>
-              <a href="https://github.com/kwonsuhyuk"><i class="fa-brands fa-github fa-2xl"></i></a>
-            </li>
-            <li>
-              <a href="https://mail.google.com/mail/u/0/#inbox">
-                <i class="fa-regular fa-envelope fa-2xl"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+    <form id="login-form">
+      <p>Sign In</p>
+      <div class="user-name">
+        <h2>Name</h2>
+        <input type="text" placeholder="Name">
       </div>
-    </header>
-
-    <!-- 페이지 중간 -->
-    <main>
-      <!-- <form id="login-form" class="hidden">
-        <input
-          requiredi
-          maxlength="15"
-          type="text"
-          placeholder="what is your name?"
-        />
-        <button>Log in</button>
-      </form> -->
-
-      <!-- 시계 -->
-      <h2 id="clock">00:00:00</h2>
-      <h1 id="greeting" class="hidden"></h1>
-      <!-- 명언 -->
-      <div id="quote">
-        <span></span>
-        <span><br>
-          <br>
-          -</span>
-        <span></span>
+      <div class="gitUrl">
+        <h2>Github Url</h2>
+        <input type="text" placeholder="Git">
       </div>
-
-      <!-- todolist -->
-      <section class="todo">
-        <div id="todo-show" style="display: none">
-          <form id="todo-form">
-            <h1>To do List</h1>
-            <input type="text" ,="" required="">
-          </form>
-          <ul id="todo-list"></ul>
-        </div>
-        <button id="todo-btn">To_do</button>
-      </section>
-    </main>
-
-    <!-- script -->
-    <script src="/snowflake.bea93294.js"></script>
-    <script src="/greetings.bc7eefb3.js"></script>
-    <script src="/clock.9ff9a60b.js"></script>
-    <script src="/quotes.acd9b62c.js"></script>
-    <script src="/background.69c54434.js"></script>
-    <script src="/todo.52169671.js"></script>
-    <script src="/click.87297843.js"></script>
-    <script src="/darkmode.7ad70a8d.js"></script>
-    <script src="/header.4485232e.js"></script>
-    <!-- <script src="js/weather.js"></script> -->
+      <div class="mailUrl">
+        <h2>Mail Url</h2>
+        <input type="text" placeholder="Mail">
+      </div>
+      <div class="submit">
+        <a href="/main.html">Submit</a>
+      </div>
+    </form>
   </body>
 </html>
