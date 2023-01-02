@@ -119,11 +119,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/userInfo.js":[function(require,module,exports) {
 var KEY = ["name", "git", "mail"];
-var userGit = document.querySelector(".gitName a");
-var userMail = document.querySelector(".mailName a");
-function setUserInfo() {
-  userGit.href = localStorage.getItem(KEY[1]);
-  userMail.href = localStorage.getItem(KEY[2]);
+var userGitB = document.querySelector(".gitName a");
+var userMailB = document.querySelector(".mailName a");
+function setUserInfo(event) {
+  if (userGitB === null) {
+    alert("GitHub 주소를 입력해주세요");
+  } else {
+    userGitB.href = "".concat(localStorage.getItem(KEY[1]), ";");
+    console.log(userGitB.href);
+  }
+  if (userMailB === null) {
+    alert("Mail 주소를 입력해주세요");
+  } else {
+    userMailB.href = "".concat(localStorage.getItem(KEY[2]));
+    console.log(userMailB.href);
+  }
 }
 setUserInfo();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -151,7 +161,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64303" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57867" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

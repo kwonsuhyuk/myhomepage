@@ -124,18 +124,19 @@ var nameInput = document.querySelector(".user-name input");
 var gitInput = document.querySelector(".gitUrl input");
 var mailInput = document.querySelector(".mailUrl input");
 var subBtn = signForm.querySelector(".submit a");
+// event.preventDefault();
 function onLoginSubmit(event) {
-  event.preventDefault();
   var userName = nameInput.value;
   var userGit = gitInput.value;
   var userMail = mailInput.value;
-  localStorage.setItem(KEY[0], userName);
-  localStorage.setItem(KEY[1], userGit);
-  localStorage.setItem(KEY[2], userMail);
+  localStorage.setItem("name", userName);
+  localStorage.setItem("git", userGit);
+  localStorage.setItem("mail", userMail);
 }
 subBtn.addEventListener("click", function () {
   onLoginSubmit();
   signForm.submit();
+  console.log("hi");
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

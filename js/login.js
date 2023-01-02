@@ -5,19 +5,19 @@ const nameInput = document.querySelector(".user-name input");
 const gitInput = document.querySelector(".gitUrl input");
 const mailInput = document.querySelector(".mailUrl input");
 const subBtn = signForm.querySelector(".submit a");
-
+// event.preventDefault();
 function onLoginSubmit(event) {
-  event.preventDefault();
   const userName = nameInput.value;
   const userGit = gitInput.value;
   const userMail = mailInput.value;
 
-  localStorage.setItem(KEY[0], userName);
-  localStorage.setItem(KEY[1], userGit);
-  localStorage.setItem(KEY[2], userMail);
+  localStorage.setItem("name", userName);
+  localStorage.setItem("git", userGit);
+  localStorage.setItem("mail", userMail);
 }
 
 subBtn.addEventListener("click", () => {
   onLoginSubmit();
   signForm.submit();
+  console.log("hi");
 });
