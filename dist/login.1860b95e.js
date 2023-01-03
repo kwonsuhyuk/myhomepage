@@ -141,13 +141,11 @@ function onLoginSubmit(event) {
 // // 유저 정보에 이름 있는지 판별 => 있을시 로그인창 안뜨게
 function userInfoOn() {
   var name = localStorage.getItem("name");
-  if (name !== null || name !== undefined || name.length !== 0) {
+  if (name !== null || name !== undefined) {
     location.assign("./main.html");
   }
 }
-
-// userInfoOn();
-
+userInfoOn();
 subBtn.addEventListener("click", function () {
   onLoginSubmit();
   signForm.submit();
@@ -177,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65198" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50322" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

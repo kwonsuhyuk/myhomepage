@@ -130,8 +130,8 @@ function setUserInfo() {
   userGitB.href = "https://github.com/".concat(git);
   userMailB.href = mail;
   var name = localStorage.getItem("name");
-  if (name === null || name === undefined || name.length === 0) {
-    history.back();
+  if (name === null || name === undefined) {
+    alert("오른쪽 프로필에서 이름을 입력해주세요");
   }
 }
 setUserInfo();
@@ -139,7 +139,7 @@ setUserInfo();
 // 프로필 화면 구성
 // 사용자화 메뉴 버튼 구성
 
-//firebase?
+//firebase? ==> 게시판 구성시 180 도 뒤집어서 게시판 보여주는 식으로 ㄴ
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -165,7 +165,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52043" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50322" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

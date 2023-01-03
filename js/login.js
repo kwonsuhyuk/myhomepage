@@ -22,7 +22,7 @@ function onLoginSubmit(event) {
 // // 유저 정보에 이름 있는지 판별 => 있을시 로그인창 안뜨게
 function userInfoOn() {
   const name = localStorage.getItem("name");
-  if (name !== null || name !== undefined || name.length !== 0) {
+  if (name !== null || name !== undefined) {
     location.assign("./main.html");
   }
 }

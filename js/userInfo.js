@@ -13,8 +13,8 @@ function setUserInfo() {
 
   const name = localStorage.getItem("name");
 
-  if (name === null || name === undefined || name.length === 0) {
-    history.back();
+  if (name === null || name === undefined) {
+    alert("오른쪽 프로필에서 이름을 입력해주세요");
   }
 }
 
@@ -23,4 +23,4 @@ setUserInfo();
 // 프로필 화면 구성
 // 사용자화 메뉴 버튼 구성
 
-//firebase?
+//firebase? ==> 게시판 구성시 180 도 뒤집어서 게시판 보여주는 식으로 ㄴ
