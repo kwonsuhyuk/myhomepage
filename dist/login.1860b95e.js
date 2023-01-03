@@ -122,21 +122,35 @@ var KEY = ["name", "git", "mail"];
 var signForm = document.getElementById("login-form");
 var nameInput = document.querySelector(".user-name input");
 var gitInput = document.querySelector(".gitUrl input");
-var mailInput = document.querySelector(".mailUrl input");
+var mailInput = document.getElementsByName("mail");
 var subBtn = signForm.querySelector(".submit a");
-// event.preventDefault();
+
+// 유저 정보 저장하기
 function onLoginSubmit(event) {
   var userName = nameInput.value;
   var userGit = gitInput.value;
-  var userMail = mailInput.value;
+  mailInput.forEach(function (el) {
+    if (el.checked) {
+      localStorage.setItem("mail", el.value);
+    }
+  });
   localStorage.setItem("name", userName);
   localStorage.setItem("git", userGit);
-  localStorage.setItem("mail", userMail);
 }
+
+// // 유저 정보에 이름 있는지 판별 => 있을시 로그인창 안뜨게
+function userInfoOn() {
+  var name = localStorage.getItem("name");
+  if (name !== null || name !== undefined || name.length !== 0) {
+    location.assign("./main.html");
+  }
+}
+
+// userInfoOn();
+
 subBtn.addEventListener("click", function () {
   onLoginSubmit();
   signForm.submit();
-  console.log("hi");
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -163,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64303" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65198" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -118,29 +118,24 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/userInfo.js":[function(require,module,exports) {
+// const mainUrl = "https://graceful-palmier-363c5a.netlify.app/";
 var KEY = ["name", "git", "mail"];
 var userGitB = document.querySelector(".gitName a");
 var userMailB = document.querySelector(".mailName a");
-function setUserInfo(event) {
+
+// 유저 정보 링크에 할당
+function setUserInfo() {
   var git = localStorage.getItem(KEY[1]);
   var mail = localStorage.getItem(KEY[2]);
-  if (git) if (userGitB === null) {
-    alert("GitHub 주소를 입력해주세요");
-  } else {
-    userGitB.href = "".concat(git);
-    console.log(userGitB.href);
-  }
-  if (userMailB === null) {
-    alert("Mail 주소를 입력해주세요");
-  } else {
-    userMailB.href = "".concat(mail);
-    console.log(userMailB.href);
+  userGitB.href = "https://github.com/".concat(git);
+  userMailB.href = mail;
+  var name = localStorage.getItem("name");
+  if (name === null || name === undefined || name.length === 0) {
+    history.back();
   }
 }
 setUserInfo();
 
-// 정보있을시 로그인 페이지 안뜨게
-// www 올시 처리
 // 프로필 화면 구성
 // 사용자화 메뉴 버튼 구성
 
@@ -170,7 +165,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57867" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52043" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
