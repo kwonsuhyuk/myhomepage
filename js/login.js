@@ -24,7 +24,7 @@ function userInfoOn() {
   const name = localStorage.getItem("name");
 
   if (name !== null || name !== undefined) {
-    // location.assign("./main.html");
+    location.assign("./main.html");
   }
 }
 
