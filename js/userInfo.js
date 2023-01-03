@@ -12,9 +12,11 @@ function setUserInfo() {
   userMailB.href = mail;
 
   const name = localStorage.getItem("name");
+  const panel = document.querySelector(".notion");
 
   if (name === null || name === undefined) {
-    alert("오른쪽 프로필에서 이름을 입력해주세요");
+    panel.classList.toggle("alert");
+    panel.innerText = "프로필에서 이름을 입력해주세요.";
   }
 }
 

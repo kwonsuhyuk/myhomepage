@@ -130,8 +130,10 @@ function setUserInfo() {
   userGitB.href = "https://github.com/".concat(git);
   userMailB.href = mail;
   var name = localStorage.getItem("name");
+  var panel = document.querySelector(".notion");
   if (name === null || name === undefined) {
-    alert("오른쪽 프로필에서 이름을 입력해주세요");
+    panel.classList.toggle("alert");
+    panel.innerText = "프로필에서 이름을 입력해주세요.";
   }
 }
 setUserInfo();
@@ -165,7 +167,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50322" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60586" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
