@@ -122,20 +122,29 @@ var KEY = ["name", "git", "mail"];
 var userGitB = document.querySelector(".gitName a");
 var userMailB = document.querySelector(".mailName a");
 function setUserInfo(event) {
-  if (userGitB === null) {
+  var git = localStorage.getItem(KEY[1]);
+  var mail = localStorage.getItem(KEY[2]);
+  if (git) if (userGitB === null) {
     alert("GitHub 주소를 입력해주세요");
   } else {
-    userGitB.href = "".concat(localStorage.getItem(KEY[1]), ";");
+    userGitB.href = "".concat(git);
     console.log(userGitB.href);
   }
   if (userMailB === null) {
     alert("Mail 주소를 입력해주세요");
   } else {
-    userMailB.href = "".concat(localStorage.getItem(KEY[2]));
+    userMailB.href = "".concat(mail);
     console.log(userMailB.href);
   }
 }
 setUserInfo();
+
+// 정보있을시 로그인 페이지 안뜨게
+// www 올시 처리
+// 프로필 화면 구성
+// 사용자화 메뉴 버튼 구성
+
+//firebase?
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
