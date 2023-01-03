@@ -27,7 +27,7 @@ function userInfoOn() {
   }
 }
 
-// userInfoOn();
+userInfoOn();
 
 subBtn.addEventListener("click", () => {
   onLoginSubmit();
