@@ -7,7 +7,7 @@ const mailInput = document.getElementsByName("mail");
 const subBtn = signForm.querySelector(".submit a");
 
 // 유저 정보 저장하기
-function onLoginSubmit(event) {
+function onLoginSubmit() {
   const userName = nameInput.value;
   const userGit = gitInput.value;
   mailInput.forEach((el) => {
