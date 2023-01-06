@@ -1,12 +1,28 @@
 @import "_elements";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+// Variable overrides first
+$primary: royalblue;
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
 
 // common
 
 * {
   list-style: none;
   text-decoration: none;
+}
+
+a {
+  color: white;
 }
 
 // 눈송이 효과
@@ -51,22 +67,22 @@
 body {
   .notion {
     display: none;
-    &.alert {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      width: 220px;
-      height: 50px;
-      background-color: black;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      color: white;
-    }
+    // &.alert {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   z-index: 100;
+    //   width: 220px;
+    //   height: 50px;
+    //   background-color: black;
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   margin: auto;
+    //   color: white;
+    // }
   }
 
   height: 100vh;
@@ -184,7 +200,7 @@ body {
       position: fixed;
       top: auto;
       right: 10px;
-      background-color: royalblue;
+      // background-color: royalblue;
       padding: 12px 10px;
       border-radius: 50%;
       color: white;
@@ -196,11 +212,14 @@ body {
 footer {
   .back {
     position: fixed;
+    left: 10px;
     bottom: 10px;
     color: white;
-    &:hover {
-      color: royalblue;
-      transition: all 0.2s linear;
+    a {
+      &:hover {
+        color: royalblue;
+        transition: all 0.2s linear;
+      }
     }
   }
 }

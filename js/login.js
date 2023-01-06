@@ -20,15 +20,15 @@ function onLoginSubmit() {
 }
 
 // // 유저 정보에 이름 있는지 판별 => 있을시 로그인창 안뜨게
-function userInfoOn() {
-  const name = localStorage.getItem("name");
+// function userInfoOn() {
+//   const name = localStorage.getItem("name");
 
-  if (name !== null || name !== undefined) {
-    location.assign("./main.html");
-  }
-}
+//   if (name !== null || name !== undefined) {
+//     location.assign("./index.html");
+//   }
+// }
 
-userInfoOn();
+// userInfoOn();
 
 subBtn.addEventListener("click", () => {
   onLoginSubmit();

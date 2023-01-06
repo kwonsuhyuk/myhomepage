@@ -126,7 +126,7 @@ var mailInput = document.getElementsByName("mail");
 var subBtn = signForm.querySelector(".submit a");
 
 // 유저 정보 저장하기
-function onLoginSubmit(event) {
+function onLoginSubmit() {
   var userName = nameInput.value;
   var userGit = gitInput.value;
   mailInput.forEach(function (el) {
@@ -139,13 +139,16 @@ function onLoginSubmit(event) {
 }
 
 // // 유저 정보에 이름 있는지 판별 => 있을시 로그인창 안뜨게
-function userInfoOn() {
-  var name = localStorage.getItem("name");
-  if (name !== null || name !== undefined) {
-    // location.assign("./main.html");
-  }
-}
-userInfoOn();
+// function userInfoOn() {
+//   const name = localStorage.getItem("name");
+
+//   if (name !== null || name !== undefined) {
+//     location.assign("./index.html");
+//   }
+// }
+
+// userInfoOn();
+
 subBtn.addEventListener("click", function () {
   onLoginSubmit();
   signForm.submit();
@@ -175,7 +178,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57776" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53911" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
