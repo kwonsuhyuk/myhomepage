@@ -12269,6 +12269,12 @@ main .todo .todo-input #todo-form button {
 main .todo .postContainer {
   touch-action: none;
 }
+main .todo .postContainer:hover {
+  z-index: 100000000;
+  perspective: 400px;
+  transform: scale(1.1);
+  transition: all 0.5s linear;
+}
 main .todo .postit {
   position: relative;
   display: flex;
