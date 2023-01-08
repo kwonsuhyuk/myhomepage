@@ -172,6 +172,7 @@ function makePostit(newTodoObj, ifNew) {
   button.innerText = " X";
   button.addEventListener("click", deleteTodo);
   postit.id = newTodoObj.id;
+  textLine.id = newTodoObj.id;
   textLine.innerText = newTodoObj.text;
   textLine.style.wordBreak = "break-all";
   postit.style.backgroundColor = newTodoObj.color;
@@ -183,12 +184,11 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.style.zIndex = newTodoObj.id / 10000;
   postContainer.appendChild(postit);
   postContainer.classList.add("postContainer");
-  todoList.style.position = "relative";
   postContainer.style.position = "absolute";
   if (ifNew) {
     console.log(initX, initY);
-    postContainer.style.top = "10px";
-    postContainer.style.left = "0px";
+    postContainer.style.top = "160px";
+    postContainer.style.left = "10px";
   } else {
     postContainer.style.top = "".concat(newTodoObj.yPos, "px");
     postContainer.style.left = "".concat(newTodoObj.xPos, "px");
@@ -222,15 +222,29 @@ function makePostit(newTodoObj, ifNew) {
   function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-
+    console.log(e.target.parentElement);
+    console.log(e.target.parentElement.getBoundingClientRect());
     // content 부분 클릭시 오차 생김
     if (e.target === textLine) {
-      initX = e.target.getBoundingClientRect().x - 42.546875;
-      initY = e.target.getBoundingClientRect().y - (193.40625 - 168.40625);
+      initY = e.target.parentElement.getBoundingClientRect().top; // + 25;
+      initX = e.target.parentElement.getBoundingClientRect().left; // + 47.46875;
     } else {
-      initX = e.target.getBoundingClientRect().x;
-      initY = e.target.getBoundingClientRect().y;
+      initY = e.target.parentElement.getBoundingClientRect().top;
+      initX = e.target.parentElement.getBoundingClientRect().left;
     }
+    var tmpData = JSON.parse(localStorage.getItem(TODOS_KEY));
+    console.log(tmpData);
+    for (var i = 0; i < tmpData.length; i++) {
+      if (tmpData[i].id == e.target.id) {
+        console.log("treu");
+        console.log(initX);
+        console.log(initY);
+        tmpData[i].xPos = initX;
+        tmpData[i].yPos = initY;
+      }
+    }
+    localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
+    console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
     active = false;
   }
   function drag(e) {
@@ -303,7 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53348" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54774" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
