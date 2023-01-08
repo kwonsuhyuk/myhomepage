@@ -136,7 +136,6 @@ function makePostit(newTodoObj, ifNew) {
 
     localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
     console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
-
     active = false;
   }
 
