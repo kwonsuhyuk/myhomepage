@@ -67,9 +67,10 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.appendChild(postit);
   postContainer.classList.add("postContainer");
   postContainer.style.position = "absolute";
+
   if (ifNew) {
     console.log(initX, initY);
-    postContainer.style.top = `160px`;
+    postContainer.style.top = `200px`;
     postContainer.style.left = `10px`;
   } else {
     postContainer.style.top = `${newTodoObj.yPos}px`;

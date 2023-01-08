@@ -187,7 +187,7 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.style.position = "absolute";
   if (ifNew) {
     console.log(initX, initY);
-    postContainer.style.top = "160px";
+    postContainer.style.top = "200px";
     postContainer.style.left = "10px";
   } else {
     postContainer.style.top = "".concat(newTodoObj.yPos, "px");
@@ -317,7 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54774" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61502" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
