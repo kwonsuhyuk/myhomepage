@@ -48,39 +48,28 @@
 
     <!-- 페이지 중간 -->
     <main>
-      <!-- <form id="login-form" class="hidden">
-        <input
-          requiredi
-          maxlength="15"
-          type="text"
-          placeholder="what is your name?"
-        />
-        <button>Log in</button>
-      </form> -->
-
       <!-- 시계 -->
       <h2 id="clock">00:00:00</h2>
-      <h1 id="greeting" class="hidden"></h1>
-      <!-- 명언 -->
-      <div id="quote">
-        <span></span>
-        <span><br>
-          <br>
-          -</span>
-        <span></span>
-      </div>
+
+      <!-- 날씨 -->
       <div class="weather"><span></span><span></span></div>
 
       <!-- todolist -->
       <section class="todo">
-        <div id="todo-show" style="display: none">
+        <div class="todo-input">
           <form id="todo-form">
-            <h1>To do List</h1>
-            <input type="text" ,="" required="">
+            <input type="text" placeholder="write to do" required="">
+            <span class="btn-red"></span><span class="btn-blue"></span><span class="btn-green"></span>
+            <button>ok</button>
           </form>
-          <ul id="todo-list"></ul>
+          <!-- <ul id="todo-list"></ul> -->
         </div>
-        <button id="todo-btn">To_do</button>
+        <div class="todo-list"></div>
+        <!-- <button id="todo-btn">To_do</button> -->
+        <!-- <div class="postit">
+          <span></span>
+          <div class="content"></div>
+        </div> -->
       </section>
     </main>
     <footer>
@@ -91,15 +80,14 @@
 
     <!-- script -->
     <script src="/snowflake.bea93294.js"></script>
-    <script src="/greetings.bc7eefb3.js"></script>
     <script src="/clock.9ff9a60b.js"></script>
-    <script src="/quotes.acd9b62c.js"></script>
-    <script src="/todo.52169671.js"></script>
     <script src="/click.87297843.js"></script>
     <script src="/darkmode.7ad70a8d.js"></script>
     <script src="/header.4485232e.js"></script>
     <script src="/weather.2dcc02e5.js"></script>
     <script src="/userInfo.756e3f8b.js"></script>
+    <script src="/todos.8be573ff.js"></script>
+    <!-- <script src="js/todo.js"></script> -->
     <!-- <script src="js/login.js"></script> -->
   </body>
 </html>

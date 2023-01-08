@@ -61,7 +61,6 @@ function showTodo(event) {
   let tmp = todoShow.style.display;
   if (tmp === "none") {
     tmp = "block";
-    header.style.backgroundColor = "white";
     btn.innerText = "Close";
   } else {
     tmp = "none";
@@ -70,5 +69,5 @@ function showTodo(event) {
   }
   todoShow.style.display = tmp;
 }
-btn.addEventListener("click", showTodo);
-btn.innerText = `To_do[ ${toDos.length} ]`;
+// btn.addEventListener("click", showTodo);
+// btn.innerText = `To_do[ ${toDos.length} ]`;

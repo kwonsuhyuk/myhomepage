@@ -117,31 +117,88 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/darkmode.js":[function(require,module,exports) {
-var mode = true;
-var modeBtn = document.querySelector(".modeBtn");
-var backGround = document.body.style.backgroundImage = "URL('https://picsum.photos/1700/1000')";
-modeBtn.textContent = " Change Dark";
-modeBtn.addEventListener("click", function () {
-  mode = !mode;
-  changeMode();
+})({"js/todos.js":[function(require,module,exports) {
+var board = document.querySelector(".todo");
+var todoForm = document.getElementById("todo-form");
+var todoInput = document.querySelector("#todo-form input");
+var submitBtn = todoForm.querySelector("button");
+var todoList = document.querySelector(".todo-list");
+var TODOS_KEY = "todos";
+var toDos = [];
+var submitRed = todoForm.querySelector(".btn-red");
+var submitBlue = todoForm.querySelector(".btn-blue");
+var submitGreen = todoForm.querySelector(".btn-green");
+var postitColor;
+var icon = document.createElement("i");
+icon.setAttribute("class", "fa-solid fa-check fa-2xl");
+submitRed.addEventListener("click", function () {
+  postitColor = "red";
+  submitRed.appendChild(icon);
 });
-function changeMode() {
-  // 오리지널 상태
-  if (mode) {
-    modeBtn.textContent = "Change Dark";
-    modeBtn.style.backgroundColor = "black";
-    modeBtn.style.color = "white";
-    document.body.style.backgroundImage = "URL('https://picsum.photos/1700/1000')";
-    // dark 상태
-  } else {
-    modeBtn.textContent = "Change Image";
-    document.body.style.backgroundImage = "";
-    document.body.style.backgroundColor = "black";
-    modeBtn.style.backgroundColor = "white";
-    modeBtn.style.color = "black";
-  }
+submitBlue.addEventListener("click", function () {
+  postitColor = "blue";
+  submitBlue.appendChild(icon);
+});
+submitGreen.addEventListener("click", function () {
+  postitColor = "green";
+  submitGreen.appendChild(icon);
+});
+// 저장
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // localstorage 에 toDos를 문자열형태로 저장(stringify)
 }
+
+// 삭제
+function deleteTodo(event) {
+  var delItem = event.target.parentElement;
+  delItem.remove();
+  toDos = toDos.filter(function (toDo) {
+    return toDo.id !== parseInt(delItem.id);
+  });
+  saveToDos();
+}
+
+// 포스트잇 제작
+function makePostit(newTodoObj) {
+  var postit = document.createElement("div");
+  var dot = document.createElement("span");
+  var textLine = document.createElement("div");
+  var button = document.createElement("button");
+  button.innerText = " X";
+  button.addEventListener("click", deleteTodo);
+  postit.id = newTodoObj.id;
+  textLine.innerText = newTodoObj.text;
+  textLine.style.wordBreak = "break-all";
+  postit.style.backgroundColor = newTodoObj.color;
+  postit.classList.add("postit");
+  textLine.classList.add("content");
+  postit.appendChild(dot);
+  postit.appendChild(textLine);
+  postit.appendChild(button);
+  todoList.appendChild(postit);
+}
+
+// submit 관리
+function handleToDoSubmit(event) {
+  event.preventDefault();
+  var newTodo = todoInput.value;
+  todoInput.value = "";
+  var newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+    color: postitColor
+  };
+  toDos.push(newTodoObj);
+  makePostit(newTodoObj);
+  saveToDos();
+}
+var savedToDos = localStorage.getItem(TODOS_KEY);
+if (savedToDos !== null) {
+  var parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(makePostit);
+}
+submitBtn.addEventListener("click", handleToDoSubmit);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -311,5 +368,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/darkmode.js"], null)
-//# sourceMappingURL=/darkmode.7ad70a8d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/todos.js"], null)
+//# sourceMappingURL=/todos.8be573ff.js.map
