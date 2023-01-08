@@ -254,6 +254,9 @@ main {
         }
       }
     }
+    .postContainer {
+      touch-action: none;
+    }
     .postit {
       position: relative;
       display: flex;
@@ -264,6 +267,24 @@ main {
       border-radius: 50%;
       color: white;
       box-shadow: 5px 5px 20px black;
+      -ms-user-select: none;
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: none;
+      &:active {
+        span {
+          display: none;
+        }
+        button {
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
 
       button {
         position: absolute;
@@ -284,11 +305,11 @@ main {
 
       span {
         position: absolute;
-        top: 10px;
+        top: 7px;
         left: 0;
         right: 0;
         margin: auto;
-        z-index: 1;
+        // z-index: 1;
         width: 10px;
         height: 10px;
         border-radius: 50%;
