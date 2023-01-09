@@ -128,12 +128,12 @@ var alertProfile = document.querySelector(".profile button span");
 // 정보유무에 따라 프로필 버튼에 알림 표시
 function onProfile() {
   var lengthData = localStorage.length;
+  console.log(localStorage.length);
   if (lengthData < 3) {
     alertProfile.classList.remove("hidden");
   } else {
     for (var i = 0; i < localStorage.length; i++) {
       var tmp = localStorage.getItem(KEY[i]);
-      console.log(tmp);
       if (tmp === null || tmp === undefined || tmp === "") {
         alertProfile.classList.remove("hidden");
         break;
@@ -185,7 +185,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53419" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

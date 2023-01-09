@@ -9,12 +9,13 @@ const alertProfile = document.querySelector(".profile button span");
 // 정보유무에 따라 프로필 버튼에 알림 표시
 function onProfile() {
   const lengthData = localStorage.length;
+  console.log(localStorage.length);
   if (lengthData < 3) {
     alertProfile.classList.remove("hidden");
   } else {
     for (let i = 0; i < localStorage.length; i++) {
       let tmp = localStorage.getItem(KEY[i]);
-      console.log(tmp);
+
       if (tmp === null || tmp === undefined || tmp === "") {
         alertProfile.classList.remove("hidden");
         break;

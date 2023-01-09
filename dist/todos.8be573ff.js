@@ -186,7 +186,7 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.classList.add("postContainer");
   postContainer.style.position = "absolute";
   if (ifNew) {
-    console.log(initX, initY);
+    // console.log(initX, initY);
     postContainer.style.top = "200px";
     postContainer.style.left = "10px";
   } else {
@@ -222,8 +222,8 @@ function makePostit(newTodoObj, ifNew) {
   function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-    console.log(e.target.parentElement);
-    console.log(e.target.parentElement.getBoundingClientRect());
+    // console.log(e.target.parentElement);
+    // console.log(e.target.parentElement.getBoundingClientRect());
     // content 부분 클릭시 오차 생김
     if (e.target === textLine) {
       initY = e.target.parentElement.getBoundingClientRect().top; // + 25;
@@ -233,18 +233,18 @@ function makePostit(newTodoObj, ifNew) {
       initX = e.target.parentElement.getBoundingClientRect().left;
     }
     var tmpData = JSON.parse(localStorage.getItem(TODOS_KEY));
-    console.log(tmpData);
+    // console.log(tmpData);
     for (var i = 0; i < tmpData.length; i++) {
       if (tmpData[i].id == e.target.id) {
-        console.log("treu");
-        console.log(initX);
-        console.log(initY);
+        // console.log("treu");
+        // console.log(initX);
+        // console.log(initY);
         tmpData[i].xPos = initX;
         tmpData[i].yPos = initY;
       }
     }
     localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
-    console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
+    // console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
     active = false;
   }
   function drag(e) {
@@ -317,7 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53419" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
