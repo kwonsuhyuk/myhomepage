@@ -8,8 +8,9 @@
     <link rel="shortcut icon" href="/favicon.ed851ed1.svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/9daea03348.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/click.c69f20fd.css">
+    <link rel="stylesheet" href="/dropmenu.53de516b.css">
     <title>Home</title>
-  <script src="/styles.b61e60ae.js"></script><script src="/click.c69f20fd.js"></script></head>
+  <script src="/styles.b61e60ae.js"></script><script src="/click.c69f20fd.js"></script><script src="/dropmenu.53de516b.js"></script></head>
   <body>
     <div class="notion"></div>
     <div id="clickEffect"></div>
@@ -37,12 +38,33 @@
         </div>
       </div>
 
-      <div class="profile">
+      <div class="profile" id="show__account">
         <button type="button" class="btn btn-primary position-relative">
           Profile
           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
           </span>
         </button>
+      </div>
+
+      <div class="dropmenu-form">
+        <form id="drop-profiles__name">
+          <span class="user-info">Name <i class="fa-solid fa-pen fa-2xs" id="setting__name"></i></span>
+          <div class="drop-profile">
+            <span id="account__name"></span>
+            <input class="fixed__input" id="fixed__name" type="text" maxlength="12">
+          </div>
+        </form>
+        <form id="drop-profiles__Git">
+          <span class="user-info">GitHub <i class="fa-solid fa-pen fa-2xs" id="setting__git"></i></span>
+          <div class="drop-profile">
+            <span id="account__git"></span>
+            <input class="fixed__input" id="fixed__git" type="text">
+          </div>
+        </form>
+        <div id="set__email">
+          <i class="fa-brands fa-google fa-2xl" id="set-google"><a href=""></a></i>
+          <i class="fa-solid fa-n fa-2xl" id="set-naver"><a href=""></a></i>
+        </div>
       </div>
     </header>
 
@@ -88,6 +110,7 @@
     <script src="/userInfo.756e3f8b.js"></script>
     <script src="/todos.8be573ff.js"></script>
     <!-- <script src="js/todo.js"></script> -->
+    <script src="/dropmenu.61bd37f3.js"></script>
     <!-- <script src="js/login.js"></script> -->
   </body>
 </html>

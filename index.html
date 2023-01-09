@@ -14,6 +14,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/click.css" />
+    <link rel="stylesheet" href="css/dropmenu.css" />
     <title>Home</title>
   </head>
   <body>
@@ -45,7 +46,7 @@
         </div>
       </div>
 
-      <div class="profile">
+      <div class="profile" id="show__account">
         <button type="button" class="btn btn-primary position-relative">
           Profile
           <span
@@ -53,6 +54,38 @@
           >
           </span>
         </button>
+      </div>
+
+      <div class="dropmenu-form">
+        <form id="drop-profiles__name">
+          <span class="user-info"
+            >Name <i class="fa-solid fa-pen fa-2xs" id="setting__name"></i
+          ></span>
+          <div class="drop-profile">
+            <span id="account__name"></span>
+            <input
+              class="fixed__input"
+              id="fixed__name"
+              type="text"
+              maxlength="12"
+            />
+          </div>
+        </form>
+        <form id="drop-profiles__Git">
+          <span class="user-info"
+            >GitHub <i class="fa-solid fa-pen fa-2xs" id="setting__git"></i
+          ></span>
+          <div class="drop-profile">
+            <span id="account__git"></span>
+            <input class="fixed__input" id="fixed__git" type="text" />
+          </div>
+        </form>
+        <div id="set__email">
+          <i class="fa-brands fa-google fa-2xl" id="set-google"
+            ><a href=""></a
+          ></i>
+          <i class="fa-solid fa-n fa-2xl" id="set-naver"><a href=""></a></i>
+        </div>
       </div>
     </header>
 
@@ -101,6 +134,7 @@
     <script src="js/userInfo.js"></script>
     <script src="js/todos.js"></script>
     <!-- <script src="js/todo.js"></script> -->
+    <script src="js/dropmenu.js"></script>
     <!-- <script src="js/login.js"></script> -->
   </body>
 </html>
