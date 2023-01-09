@@ -87,7 +87,7 @@ function onClcikGoogle(){
   setGoogle.style.color ="blue";
   setNaver.style.color = "white";
   const googleMail = new URL("https://mail.google.com/");
-  localStorage.setItem("mail",googleMail);
+  localStorage.setItem("mail",googleMail);  
 }
 //네이버 버튼
 function onClcikNaver(){
