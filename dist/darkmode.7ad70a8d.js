@@ -126,6 +126,15 @@ modeBtn.addEventListener("click", function () {
   mode = !mode;
   changeMode();
 });
+var imgForm = document.querySelector(".background");
+var imgChange = document.getElementById("image-input");
+imgChange.onchange = function () {
+  var file = imgChange.files[0];
+  console.log(file);
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  console.log(URL.createObjectURL(file));
+};
 function changeMode() {
   // 오리지널 상태
   if (mode) {
@@ -167,7 +176,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50931" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52384" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

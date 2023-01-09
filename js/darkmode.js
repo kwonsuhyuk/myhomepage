@@ -9,6 +9,17 @@ modeBtn.addEventListener("click", () => {
   changeMode();
 });
 
+// const imgForm = document.querySelector(".background");
+// const imgChange = document.getElementById("image-input");
+
+// imgChange.onchange = () => {
+//   const file = imgChange.files[0];
+//   console.log(file);
+//   const reader = new FileReader();
+//   reader.readAsDataURL(file);
+//   console.log(URL.createObjectURL(file));
+// };
+
 function changeMode() {
   // 오리지널 상태
   if (mode) {

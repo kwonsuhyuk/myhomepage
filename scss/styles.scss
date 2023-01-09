@@ -336,6 +336,23 @@ footer {
       }
     }
   }
+  .background {
+    button {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 55px;
+      bottom: 7px;
+      width: 40px;
+      height: 30px;
+      border: transparent;
+      background-color: transparent;
+      i {
+        color: white;
+      }
+    }
+  }
 }
 
 // body {

@@ -12334,4 +12334,19 @@ footer .back {
 footer .back a:hover {
   color: royalblue;
   transition: all 0.2s linear;
+}
+footer .background button {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 55px;
+  bottom: 7px;
+  width: 40px;
+  height: 30px;
+  border: transparent;
+  background-color: transparent;
+}
+footer .background button i {
+  color: white;
 }/*# sourceMappingURL=styles.css.map */

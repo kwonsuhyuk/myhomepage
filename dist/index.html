@@ -76,9 +76,20 @@
       <div class="back">
         <a href="/login.html"><i class="fa-solid fa-right-to-bracket fa-2xl"></i></a>
       </div>
+      <div class="background">
+        <input id="image-input" type="file" style="visibility: hidden">
+        <button id="image-btn" onclick="fileInputUpload()">
+          <i class="fa-solid fa-image fa-2xl"></i>
+        </button>
+      </div>
     </footer>
 
     <!-- script -->
+    <script>function fileInputUpload() {
+  var fileInput = document.getElementById("image-input");
+  fileInput.click();
+}</script>
+
     <script src="/snowflake.bea93294.js"></script>
     <script src="/clock.9ff9a60b.js"></script>
     <script src="/click.87297843.js"></script>
@@ -87,7 +98,5 @@
     <script src="/weather.2dcc02e5.js"></script>
     <script src="/userInfo.756e3f8b.js"></script>
     <script src="/todos.8be573ff.js"></script>
-    <!-- <script src="js/todo.js"></script> -->
-    <!-- <script src="js/login.js"></script> -->
   </body>
 </html>
