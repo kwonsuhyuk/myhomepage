@@ -2,8 +2,8 @@
   color: white;
 }
 .dropmenu-form{
-  visibility: hidden;
   position: absolute;
+  visibility: hidden;
   right: 20px;
   top: 60px;
   width: 500px;
@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   height: 500px;
-  color:white
+  color:white;
 }
 .dropmenu-form span{
   text-align: center;
@@ -44,4 +44,7 @@
 #set__email i{
   margin: 0px 20px;
   margin-top: 50px;
+}
+.select-icon{
+  color: blue;
 }

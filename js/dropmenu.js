@@ -17,6 +17,9 @@ const userGitB = document.querySelector(".gitName a");
 //이메일버튼
 const setGoogle = document.getElementById("set-google");
 const setNaver = document.getElementById("set-naver");
+const googleMail = new URL("https://mail.google.com/");
+const googleNaver = new URL("https://mail.naver.com/");
+let localMail = localStorage.getItem("mail");
 //드롭다운메뉴
 
 function toggleProfile(){
@@ -33,7 +36,8 @@ function toggleProfile(){
   else {
     profile.style.visibility = 'hidden';
   }
-
+  
+   //어떤 메일 url 쓰는지 표시하기
 }
 //드롭다운메뉴 내부에서 수정하기
 //이름버튼
@@ -51,8 +55,7 @@ function letFixedName(){
 function onFixedNameSubmit(event){
   event.preventDefault(); 
   const newName = fixedName.value;
-  localStorage.setItem("name", newName);
-  fixedName.value='';
+  localStorage.setItem("name", newName);  
   const greetingName = localStorage.getItem("name");
   accountName.style.display = 'block';
   fixedName.style.display ='none';
@@ -74,7 +77,6 @@ function onFixedGitSubmit(event){
   event.preventDefault(); 
   const newGit = fixedGit.value;
   localStorage.setItem("git", newGit);
-  fixedGit.value='';
   const greetingGit = localStorage.getItem("git");
   accountGit.style.display = 'block';
   fixedGit.style.display ='none';
@@ -84,17 +86,15 @@ function onFixedGitSubmit(event){
 }
 //구글 버튼
 function onClcikGoogle(){
+  localStorage.setItem("mail",googleMail);
   setGoogle.style.color ="blue";
   setNaver.style.color = "white";
-  const googleMail = new URL("https://mail.google.com/");
-  localStorage.setItem("mail",googleMail);  
 }
 //네이버 버튼
 function onClcikNaver(){
-  setGoogle.style.color ="white";
-  setNaver.style.color = "blue"
-  const googleNaver = new URL("https://mail.naver.com/");
   localStorage.setItem("mail",googleNaver);
+  setGoogle.style.color ="white";
+  setNaver.style.color = "blue";
 }
 
 
