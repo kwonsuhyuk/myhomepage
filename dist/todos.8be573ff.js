@@ -117,58 +117,182 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
+})({"js/todos.js":[function(require,module,exports) {
+var board = document.querySelector(".todo");
+var todoForm = document.getElementById("todo-form");
+var todoInput = document.querySelector("#todo-form input");
+var submitBtn = todoForm.querySelector("button");
+var todoList = document.querySelector(".todo-list");
+var TODOS_KEY = "todos";
+var toDos = [];
+var submitRed = todoForm.querySelector(".btn-red");
+var submitBlue = todoForm.querySelector(".btn-blue");
+var submitGreen = todoForm.querySelector(".btn-green");
+var postitColor = "red";
+var icon = document.createElement("i");
+icon.setAttribute("class", "fa-solid fa-check fa-2xl");
+submitRed.addEventListener("click", function () {
+  postitColor = "red";
+  submitRed.appendChild(icon);
+});
+submitBlue.addEventListener("click", function () {
+  postitColor = "blue";
+  submitBlue.appendChild(icon);
+});
+submitGreen.addEventListener("click", function () {
+  postitColor = "green";
+  submitGreen.appendChild(icon);
+});
+// 저장
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // localstorage 에 toDos를 문자열형태로 저장(stringify)
 }
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
+
+// 삭제
+function deleteTodo(event) {
+  var delItem = event.target.parentElement;
+  delItem.remove();
+  toDos = toDos.filter(function (toDo) {
+    return toDo.id !== parseInt(delItem.id);
+  });
+  saveToDos();
+}
+
+// 좌표 저장용
+var initX = 0;
+var initY = 10;
+
+// 포스트잇 제작
+function makePostit(newTodoObj, ifNew) {
+  var postContainer = document.createElement("div");
+  var postit = document.createElement("div");
+  var dot = document.createElement("span");
+  var textLine = document.createElement("div");
+  var button = document.createElement("button");
+  button.innerText = " X";
+  button.addEventListener("click", deleteTodo);
+  postit.id = newTodoObj.id;
+  textLine.id = newTodoObj.id;
+  textLine.innerText = newTodoObj.text;
+  textLine.style.wordBreak = "break-all";
+  postit.style.backgroundColor = newTodoObj.color;
+  postit.classList.add("postit");
+  textLine.classList.add("content");
+  postit.appendChild(dot);
+  postit.appendChild(textLine);
+  postit.appendChild(button);
+  postContainer.style.zIndex = newTodoObj.id / 10000;
+  postContainer.appendChild(postit);
+  postContainer.classList.add("postContainer");
+  postContainer.style.position = "absolute";
+  if (ifNew) {
+    console.log(initX, initY);
+    postContainer.style.top = "200px";
+    postContainer.style.left = "10px";
+  } else {
+    postContainer.style.top = "".concat(newTodoObj.yPos, "px");
+    postContainer.style.left = "".concat(newTodoObj.xPos, "px");
+  }
+  todoList.appendChild(postContainer);
+  var active = false;
+  var currentX;
+  var currentY;
+  var initialX;
+  var initialY;
+  var xOffset = 0;
+  var yOffset = 0;
+  postContainer.addEventListener("touchstart", dragStart, false);
+  postContainer.addEventListener("touchend", dragEnd, false);
+  postContainer.addEventListener("touchmove", drag, false);
+  postContainer.addEventListener("mousedown", dragStart, false);
+  postContainer.addEventListener("mouseup", dragEnd, false);
+  postContainer.addEventListener("mousemove", drag, false);
+  function dragStart(e) {
+    if (e.type === "touchstart") {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+    } else {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+    }
+    if (e.target === postit || e.target === textLine) {
+      active = true;
     }
   }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+  function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+    console.log(e.target.parentElement);
+    console.log(e.target.parentElement.getBoundingClientRect());
+    // content 부분 클릭시 오차 생김
+    if (e.target === textLine) {
+      initY = e.target.parentElement.getBoundingClientRect().top; // + 25;
+      initX = e.target.parentElement.getBoundingClientRect().left; // + 47.46875;
+    } else {
+      initY = e.target.parentElement.getBoundingClientRect().top;
+      initX = e.target.parentElement.getBoundingClientRect().left;
+    }
+    var tmpData = JSON.parse(localStorage.getItem(TODOS_KEY));
+    console.log(tmpData);
+    for (var i = 0; i < tmpData.length; i++) {
+      if (tmpData[i].id == e.target.id) {
+        console.log("treu");
+        console.log(initX);
+        console.log(initY);
+        tmpData[i].xPos = initX;
+        tmpData[i].yPos = initY;
       }
     }
-    cssTimeout = null;
-  }, 50);
+    localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
+    console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
+    active = false;
+  }
+  function drag(e) {
+    if (active) {
+      e.preventDefault();
+      if (e.type === "touchmove") {
+        currentX = e.touches[0].clientX - initialX;
+        currentY = e.touches[0].clientY - initialY;
+      } else {
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+      }
+      xOffset = currentX;
+      yOffset = currentY;
+      setTranslate(currentX, currentY, postContainer);
+    }
+  }
+  function setTranslate(xPos, yPos, el) {
+    el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  }
 }
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+// submit 관리
+function handleToDoSubmit(event) {
+  event.preventDefault();
+  var newTodo = todoInput.value;
+  todoInput.value = "";
+  var newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+    color: postitColor,
+    xPos: initX,
+    yPos: initY
+  };
+  toDos.push(newTodoObj);
+  makePostit(newTodoObj, true);
+  saveToDos();
+}
+var savedToDos = localStorage.getItem(TODOS_KEY);
+if (savedToDos !== null) {
+  var parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(function (el) {
+    makePostit(el, false);
+  });
+}
+submitBtn.addEventListener("click", handleToDoSubmit);
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -193,11 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "50704" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54774" + '/');
->>>>>>> 4dcb5dd5ce2e2ceaf09a97672de7ffd41484b2f5
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
@@ -341,5 +461,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/todos.js"], null)
+//# sourceMappingURL=/todos.8be573ff.js.map

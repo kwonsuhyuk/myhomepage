@@ -12122,6 +12122,7 @@ body .notion {
 }
 body header {
   position: relative;
+  margin-top: 5px;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -12150,6 +12151,7 @@ body header .menu-bar {
 }
 body header .menu-bar .utils ul {
   display: flex;
+  margin-bottom: 5px;
 }
 body header .menu-bar .utils ul li {
   background-color: rgba(255, 255, 255, 0.1);
@@ -12221,6 +12223,106 @@ body header .profile {
   border-radius: 50%;
   color: white;
   cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+main .todo {
+  height: 50vh;
+}
+main .todo .todo-input #todo-form {
+  display: flex;
+}
+main .todo .todo-input #todo-form input {
+  border-radius: 10px;
+}
+main .todo .todo-input #todo-form input:focus {
+  background-color: black;
+  color: white;
+}
+main .todo .todo-input #todo-form span {
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: auto;
+}
+main .todo .todo-input #todo-form .btn-red {
+  margin-left: 10px;
+  background-color: red;
+}
+main .todo .todo-input #todo-form .btn-blue {
+  background-color: blue;
+}
+main .todo .todo-input #todo-form .btn-green {
+  background-color: green;
+  margin-right: 10px;
+}
+main .todo .todo-input #todo-form button {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+main .todo .postContainer {
+  touch-action: none;
+}
+main .todo .postContainer:hover {
+  z-index: 100000000;
+}
+main .todo .postit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 5px 5px 20px black;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+main .todo .postit:active span {
+  display: none;
+}
+main .todo .postit:active button {
+  opacity: 0;
+}
+main .todo .postit:hover {
+  cursor: pointer;
+}
+main .todo .postit button {
+  position: absolute;
+  bottom: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: transparent;
+  color: white;
+}
+main .todo .postit .content {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  max-width: 200px;
+}
+main .todo .postit span {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black;
 }
 
 footer .back {

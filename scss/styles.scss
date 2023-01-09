@@ -95,6 +95,7 @@ body {
   // header
   header {
     position: relative;
+    margin-top: 5px;
     height: 10vh;
     display: flex;
     align-items: center;
@@ -123,6 +124,7 @@ body {
       .utils {
         ul {
           display: flex;
+          margin-bottom: 5px;
           li {
             background-color: rgba($color: white, $alpha: 0.1);
             border-radius: 30px;
@@ -209,6 +211,118 @@ body {
   }
 }
 
+//main
+main {
+  display: flex;
+  flex-direction: column;
+
+  .todo {
+    height: 50vh;
+    .todo-input {
+      #todo-form {
+        display: flex;
+        input {
+          border-radius: 10px;
+          &:focus {
+            background-color: black;
+            color: white;
+          }
+        }
+        span {
+          text-align: center;
+          border: 1px solid white;
+          border-radius: 50%;
+          cursor: pointer;
+          width: 30px;
+          height: auto;
+        }
+        .btn-red {
+          margin-left: 10px;
+          background-color: red;
+        }
+        .btn-blue {
+          background-color: blue;
+        }
+        .btn-green {
+          background-color: green;
+          margin-right: 10px;
+        }
+        button {
+          background-color: black;
+          color: white;
+          border-radius: 10px;
+        }
+      }
+    }
+    .postContainer {
+      touch-action: none;
+
+      &:hover {
+        z-index: 100000000;
+      }
+    }
+    .postit {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      color: white;
+      box-shadow: 5px 5px 20px black;
+      -ms-user-select: none;
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: none;
+      &:active {
+        span {
+          display: none;
+        }
+        button {
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+      button {
+        position: absolute;
+        bottom: 10px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: transparent;
+        color: white;
+      }
+      .content {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        max-width: 200px;
+      }
+
+      span {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        // z-index: 1;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: black;
+      }
+    }
+  }
+}
+
+// footer
 footer {
   .back {
     position: fixed;
