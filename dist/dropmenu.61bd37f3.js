@@ -138,10 +138,8 @@ var userGitB = document.querySelector(".gitName a");
 var setGoogle = document.getElementById("set-google");
 var setNaver = document.getElementById("set-naver");
 var googleMail = new URL("https://mail.google.com/");
-var googleNaver = new URL("https://mail.naver.com/");
-var localMail = localStorage.getItem("mail");
+var naverMail = new URL("https://mail.naver.com/");
 //드롭다운메뉴
-
 function toggleProfile() {
   // menu` 숨기기 (visibility: hidden)
   //메뉴창이 뜨고 원래 로컬스토리지 안에있는 값 프인트먼저하기
@@ -151,13 +149,19 @@ function toggleProfile() {
     var printgit = localStorage.getItem("git");
     accountName.innerText = printname;
     accountGit.innerText = printgit;
+    //무슨 이메을 쓰고있는지 표시하기
+    if (localStorage.mail !== "https://mail.google.com/") {
+      setNaver.classList.add('select-icon');
+      setGoogle.classList.remove('select-icon');
+    } else if (localStorage.mail = "https://mail.google.com/") {
+      setGoogle.classList.add('select-icon');
+      setNaver.classList.remove('select-icon');
+    }
   }
   // menu` 보이기 (visibility: visible)
   else {
     profile.style.visibility = 'hidden';
   }
-
-  //어떤 메일 url 쓰는지 표시하기
 }
 //드롭다운메뉴 내부에서 수정하기
 //이름버튼
@@ -205,14 +209,14 @@ function onFixedGitSubmit(event) {
 //구글 버튼
 function onClcikGoogle() {
   localStorage.setItem("mail", googleMail);
-  setGoogle.style.color = "blue";
-  setNaver.style.color = "white";
+  setGoogle.style.color = 'blue';
+  setNaver.style.color = 'white';
 }
 //네이버 버튼
 function onClcikNaver() {
-  localStorage.setItem("mail", googleNaver);
-  setGoogle.style.color = "white";
-  setNaver.style.color = "blue";
+  localStorage.setItem("mail", naverMail);
+  setGoogle.style.color = 'white';
+  setNaver.style.color = 'blue';
 }
 account.addEventListener("click", toggleProfile);
 settingName.addEventListener("click", letFixedName);
@@ -246,7 +250,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50704" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61288" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

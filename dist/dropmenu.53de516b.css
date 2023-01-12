@@ -2,10 +2,10 @@
   color: white;
 }
 .dropmenu-form{
-  position: absolute;
+  position: fixed;
   visibility: hidden;
   right: 20px;
-  top: 60px;
+  top: 70px;
   width: 500px;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
