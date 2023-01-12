@@ -142,8 +142,8 @@ var setNaver = document.getElementById("set-naver");
 function toggleProfile() {
   // menu` 숨기기 (visibility: hidden)
   //메뉴창이 뜨고 원래 로컬스토리지 안에있는 값 프인트먼저하기
-  if (profile.style.visibility === 'hidden') {
-    profile.style.visibility = 'visible';
+  if (profile.style.visibility === "hidden") {
+    profile.style.visibility = "visible";
     var printname = localStorage.getItem("name");
     var printgit = localStorage.getItem("git");
     accountName.innerText = printname;
@@ -151,18 +151,18 @@ function toggleProfile() {
   }
   // menu` 보이기 (visibility: visible)
   else {
-    profile.style.visibility = 'hidden';
+    profile.style.visibility = "hidden";
   }
 }
 //드롭다운메뉴 내부에서 수정하기
 //이름버튼
 function letFixedName() {
-  if (accountName.style.display !== 'none') {
-    accountName.style.display = 'none';
-    fixedName.style.display = 'block';
+  if (accountName.style.display !== "none") {
+    accountName.style.display = "none";
+    fixedName.style.display = "block";
   } else {
-    accountName.style.display = 'block';
-    fixedName.style.display = 'none';
+    accountName.style.display = "block";
+    fixedName.style.display = "none";
   }
 }
 //이름 수정하기
@@ -170,20 +170,20 @@ function onFixedNameSubmit(event) {
   event.preventDefault();
   var newName = fixedName.value;
   localStorage.setItem("name", newName);
-  fixedName.value = '';
+  fixedName.value = "";
   var greetingName = localStorage.getItem("name");
-  accountName.style.display = 'block';
-  fixedName.style.display = 'none';
+  accountName.style.display = "block";
+  fixedName.style.display = "none";
   accountName.innerText = greetingName;
 }
-//깃 버튼 
+//깃 버튼
 function letFixedGit() {
-  if (accountGit.style.display !== 'none') {
-    accountGit.style.display = 'none';
-    fixedGit.style.display = 'block';
+  if (accountGit.style.display !== "none") {
+    accountGit.style.display = "none";
+    fixedGit.style.display = "block";
   } else {
-    accountGit.style.display = 'block';
-    fixedGit.style.display = 'none';
+    accountGit.style.display = "block";
+    fixedGit.style.display = "none";
   }
 }
 //깃 수정하기
@@ -191,10 +191,10 @@ function onFixedGitSubmit(event) {
   event.preventDefault();
   var newGit = fixedGit.value;
   localStorage.setItem("git", newGit);
-  fixedGit.value = '';
+  fixedGit.value = "";
   var greetingGit = localStorage.getItem("git");
-  accountGit.style.display = 'block';
-  fixedGit.style.display = 'none';
+  accountGit.style.display = "block";
+  fixedGit.style.display = "none";
   accountGit.innerText = greetingGit;
   //깃 url 이름 바꾸기
   userGitB.href = "https://github.com/".concat(greetingGit);
@@ -245,7 +245,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50704" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50550" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -69,7 +69,7 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.style.position = "absolute";
 
   if (ifNew) {
-    console.log(initX, initY);
+    // console.log(initX, initY);
     postContainer.style.top = `200px`;
     postContainer.style.left = `10px`;
   } else {
@@ -112,8 +112,8 @@ function makePostit(newTodoObj, ifNew) {
   function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-    console.log(e.target.parentElement);
-    console.log(e.target.parentElement.getBoundingClientRect());
+    // console.log(e.target.parentElement);
+    // console.log(e.target.parentElement.getBoundingClientRect());
     // content 부분 클릭시 오차 생김
     if (e.target === textLine) {
       initY = e.target.parentElement.getBoundingClientRect().top; // + 25;
@@ -123,19 +123,19 @@ function makePostit(newTodoObj, ifNew) {
       initX = e.target.parentElement.getBoundingClientRect().left;
     }
     const tmpData = JSON.parse(localStorage.getItem(TODOS_KEY));
-    console.log(tmpData);
+    // console.log(tmpData);
     for (let i = 0; i < tmpData.length; i++) {
       if (tmpData[i].id == e.target.id) {
-        console.log("treu");
-        console.log(initX);
-        console.log(initY);
+        // console.log("treu");
+        // console.log(initX);
+        // console.log(initY);
         tmpData[i].xPos = initX;
         tmpData[i].yPos = initY;
       }
     }
 
     localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
-    console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
+    // console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
     active = false;
   }
 
