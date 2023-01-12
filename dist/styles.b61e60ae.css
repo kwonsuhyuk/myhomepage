@@ -12335,20 +12335,21 @@ footer .back a:hover {
   color: royalblue;
   transition: all 0.2s linear;
 }
-footer .background button {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 55px;
-  bottom: 7px;
-  width: 40px;
-  height: 30px;
-  border: transparent;
-  background-color: transparent;
-}
-footer .background button i {
+footer .weather {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   color: white;
+}
+footer .weather span {
+  padding: 10px;
+}
+footer .weather span:last-child {
+  position: absolute;
+  bottom: 20px;
+  right: -10px;
+  width: 140px;
+  padding: auto 0;
 }
 
 /*# sourceMappingURL=/styles.b61e60ae.css.map */

@@ -117,42 +117,109 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/login.js":[function(require,module,exports) {
+})({"js/dropmenu.js":[function(require,module,exports) {
 var KEY = ["name", "git", "mail"];
-var signForm = document.getElementById("login-form");
-var nameInput = document.querySelector(".user-name input");
-var gitInput = document.querySelector(".gitUrl input");
-var mailInput = document.getElementsByName("mail");
-var subBtn = signForm.querySelector(".submit a");
+//드롭다운메뉴 자체
+var account = document.getElementById("show__account");
+var profile = document.querySelector(".dropmenu-form");
+//드롭다운메뉴 내부
+var settingName = document.querySelector("#setting__name");
+var settingGit = document.querySelector("#setting__git");
+var accountName = document.getElementById("account__name");
+var accountGit = document.getElementById("account__git");
+var fixedName = document.getElementById("fixed__name");
+var fixedGit = document.getElementById("fixed__git");
+var fixedProfilesName = document.getElementById("drop-profiles__name");
+var fixedProfilesGit = document.getElementById("drop-profiles__Git");
+var greetingName = localStorage.getItem("name");
+var greetingGit = localStorage.getItem("git");
+var userGitB = document.querySelector(".gitName a");
+//이메일버튼
+var setGoogle = document.getElementById("set-google");
+var setNaver = document.getElementById("set-naver");
+//드롭다운메뉴
 
-// 유저 정보 저장하기
-function onLoginSubmit() {
-  var userName = nameInput.value;
-  var userGit = gitInput.value;
-  mailInput.forEach(function (el) {
-    if (el.checked) {
-      localStorage.setItem("mail", el.value);
-    }
-  });
-  localStorage.setItem("name", userName);
-  localStorage.setItem("git", userGit);
+function toggleProfile() {
+  // menu` 숨기기 (visibility: hidden)
+  //메뉴창이 뜨고 원래 로컬스토리지 안에있는 값 프인트먼저하기
+  if (profile.style.visibility === "hidden") {
+    profile.style.visibility = "visible";
+    var printname = localStorage.getItem("name");
+    var printgit = localStorage.getItem("git");
+    accountName.innerText = printname;
+    accountGit.innerText = printgit;
+  }
+  // menu` 보이기 (visibility: visible)
+  else {
+    profile.style.visibility = "hidden";
+  }
 }
-
-// // 유저 정보에 이름 있는지 판별 => 있을시 로그인창 안뜨게
-// function userInfoOn() {
-//   const name = localStorage.getItem("name");
-
-//   if (name !== null || name !== undefined) {
-//     location.assign("./index.html");
-//   }
-// }
-
-// userInfoOn();
-
-subBtn.addEventListener("click", function () {
-  onLoginSubmit();
-  signForm.submit();
-});
+//드롭다운메뉴 내부에서 수정하기
+//이름버튼
+function letFixedName() {
+  if (accountName.style.display !== "none") {
+    accountName.style.display = "none";
+    fixedName.style.display = "block";
+  } else {
+    accountName.style.display = "block";
+    fixedName.style.display = "none";
+  }
+}
+//이름 수정하기
+function onFixedNameSubmit(event) {
+  event.preventDefault();
+  var newName = fixedName.value;
+  localStorage.setItem("name", newName);
+  fixedName.value = "";
+  var greetingName = localStorage.getItem("name");
+  accountName.style.display = "block";
+  fixedName.style.display = "none";
+  accountName.innerText = greetingName;
+}
+//깃 버튼
+function letFixedGit() {
+  if (accountGit.style.display !== "none") {
+    accountGit.style.display = "none";
+    fixedGit.style.display = "block";
+  } else {
+    accountGit.style.display = "block";
+    fixedGit.style.display = "none";
+  }
+}
+//깃 수정하기
+function onFixedGitSubmit(event) {
+  event.preventDefault();
+  var newGit = fixedGit.value;
+  localStorage.setItem("git", newGit);
+  fixedGit.value = "";
+  var greetingGit = localStorage.getItem("git");
+  accountGit.style.display = "block";
+  fixedGit.style.display = "none";
+  accountGit.innerText = greetingGit;
+  //깃 url 이름 바꾸기
+  userGitB.href = "https://github.com/".concat(greetingGit);
+}
+//구글 버튼
+function onClcikGoogle() {
+  setGoogle.style.color = "blue";
+  setNaver.style.color = "white";
+  var googleMail = new URL("https://mail.google.com/");
+  localStorage.setItem("mail", googleMail);
+}
+//네이버 버튼
+function onClcikNaver() {
+  setGoogle.style.color = "white";
+  setNaver.style.color = "blue";
+  var googleNaver = new URL("https://mail.naver.com/");
+  localStorage.setItem("mail", googleNaver);
+}
+account.addEventListener("click", toggleProfile);
+settingName.addEventListener("click", letFixedName);
+settingGit.addEventListener("click", letFixedGit);
+fixedProfilesName.addEventListener("submit", onFixedNameSubmit);
+fixedProfilesGit.addEventListener("submit", onFixedGitSubmit);
+setGoogle.addEventListener("click", onClcikGoogle);
+setNaver.addEventListener("click", onClcikNaver);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -322,5 +389,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/login.js"], null)
-//# sourceMappingURL=/login.1860b95e.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/dropmenu.js"], null)
+//# sourceMappingURL=/dropmenu.61bd37f3.js.map

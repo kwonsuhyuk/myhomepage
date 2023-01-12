@@ -119,6 +119,14 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/weather.js":[function(require,module,exports) {
 var API_KEY = "93e3b1828e8e9d26579d1dee33d08b75";
+var cloudW = "<i class=\"fa-solid fa-cloud fa-2xl\"></i>";
+var clearW = "<i class=\"fa-regular fa-sun fa-2xl\"></i>";
+var thunderW = "<i class=\"fa-solid fa-bolt fa-2xl\"></i>";
+var dirzzleW = "<i class=\"fa-solid fa-water fa-2xl\"></i>";
+var rainW = "<i class=\"fa-solid fa-umbrella fa-2xl\"></i>";
+var snowW = "<i class=\"fa-solid fa-snowflakes fa-2xl\"></i>";
+var atmosphereW = "<i class=\"fa-solid fa-wind fa-2xl\"></i>";
+var defaultW = " <i class=\"fa-solid fa-wind fa-2xl\"></i>";
 function onGeoOk(position) {
   var lat = position.coords.latitude;
   var lng = position.coords.longitude;
@@ -126,9 +134,30 @@ function onGeoOk(position) {
   fetch(url).then(function (response) {
     return response.json();
   }).then(function (data) {
+    var nowWeather = data.weather[0].main;
     var weather = document.querySelector(".weather span:first-child");
+    var tmp = document.querySelector(".weather span:nth-child(2)");
     var city = document.querySelector(".weather span:last-child");
-    weather.innerText = "".concat(data.weather[0].main, " in ").concat(data.name, " (").concat(data.main.temp, "\xB0C) ");
+    if (nowWeather === "Clouds") {
+      weather.innerHTML = cloudW;
+    } else if (nowWeather === "Clear") {
+      weather.innerHTML = clearW;
+    } else if (nowWeather === "Thunderstorm") {
+      weather.innerHTML = thunderW;
+    } else if (nowWeather === "Drizzle") {
+      weather.innerHTML = dirzzleW;
+    } else if (nowWeather === "Rain") {
+      weather.innerHTML = rainW;
+    } else if (nowWeather === "Snow") {
+      weather.innerHTML = snowW;
+    } else if (nowWeather === "Atmosphere") {
+      weather.innerHTML = atmosphereW;
+    } else {
+      weather.innerHTML = defaultW;
+    }
+    console.log(nowWeather);
+    tmp.innerHTML = "".concat(data.main.temp, "\xB0C");
+    city.innerHTML = "In ".concat(data.name);
   });
 }
 function onGeoError() {
@@ -160,7 +189,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53419" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50550" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
