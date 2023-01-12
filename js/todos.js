@@ -3,7 +3,7 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const submitBtn = todoForm.querySelector("button");
 const todoList = document.querySelector(".todo-list");
-
+const color = document.getElementById("select-colorBtn"); //색깔고르기
 const TODOS_KEY = "todos";
 
 let toDos = [];
@@ -191,3 +191,11 @@ if (savedToDos !== null) {
   });
 }
 submitBtn.addEventListener("click", handleToDoSubmit);
+
+
+function onColorChange(event){
+  postitColor = event.target.value;
+  console.log(event.target.value);
+}
+
+color.addEventListener("change", onColorChange);

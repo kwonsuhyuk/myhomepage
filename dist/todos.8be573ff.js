@@ -123,6 +123,7 @@ var todoForm = document.getElementById("todo-form");
 var todoInput = document.querySelector("#todo-form input");
 var submitBtn = todoForm.querySelector("button");
 var todoList = document.querySelector(".todo-list");
+var color = document.getElementById("select-colorBtn"); //색깔고르기
 var TODOS_KEY = "todos";
 var toDos = [];
 var submitRed = todoForm.querySelector(".btn-red");
@@ -292,6 +293,11 @@ if (savedToDos !== null) {
   });
 }
 submitBtn.addEventListener("click", handleToDoSubmit);
+function onColorChange(event) {
+  postitColor = event.target.value;
+  console.log(event.target.value);
+}
+color.addEventListener("change", onColorChange);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -317,7 +323,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61288" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65384" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
