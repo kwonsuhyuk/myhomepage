@@ -45,3 +45,22 @@ function makeSnowFlake() {
 }
 
 sfBtn.addEventListener("click", checkActive);
+
+// function makeRain() {
+//   const delay = Math.random() * 10;
+//   const duration = Math.random() * 20 + MIN_DURATION;
+//   for (let i = 0; i < 400; i++) {
+//     const drop = document.createElement("div");
+//     drop.classList.add("raindrop");
+//     body.appendChild(drop);
+
+//     drop.style.left = `${Math.random() * window.screen.width}px`;
+//     drop.style.animation - `fall ${duration}s linear infinite`;
+//     drop.style.animationDelay = `${delay}s`;
+//   }
+//   setTimeout(() => {
+//     body.removeChild(drop);
+//     makeSnowFlake();
+//   }, (duration + delay) * 1000);
+// }
+// makeRain();

@@ -26,6 +26,16 @@ a {
 }
 
 // 눈송이 효과
+.raindrop {
+  position: fixed;
+  top: -50px;
+  width: 2px;
+  height: 30px;
+  background-color: #d3d3d3;
+  opacity: 0.7;
+  z-index: 10;
+}
+
 .snowflake {
   width: 8px;
   height: 8px;
@@ -222,6 +232,8 @@ main {
       #todo-form {
         display: flex;
         input {
+          border: 1px solid white;
+          outline: none;
           border-radius: 10px;
           &:focus {
             background-color: black;
