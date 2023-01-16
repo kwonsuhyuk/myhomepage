@@ -12,38 +12,33 @@
     <title>Home</title>
   <script src="/styles.b61e60ae.js"></script><script src="/click.c69f20fd.js"></script></head>
   <body>
-    <div class="notion"></div>
     <div id="clickEffect"></div>
 
     <!-- 상단바 -->
     <header>
-      <div class="menuBtn"></div>
-      <div class="menu-bar">
-        <div class="snowflakeBtn"><span></span></div>
-        <div class="modeBtn"></div>
-        <div class="utils">
-          <ul>
-            <li>
-              <a href="https://music.youtube.com/"><i class="fa-solid fa-music fa-2xl"></i></a>
-            </li>
-            <li class="gitName">
-              <a href=""><i class="fa-brands fa-github fa-2xl"></i></a>
-            </li>
-            <li class="mailName">
-              <a href="">
-                <i class="fa-regular fa-envelope fa-2xl"></i>
-              </a>
-            </li>
-          </ul>
+      <div class="navbar">
+        <div class="container nav-container">
+          <input class="checkbox" type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <div class="profile" id="show__account">
+            <button type="button" class="btn btn-primary position-relative">
+              Profile
+              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+              </span>
+            </button>
+          </div>
+          <div class="menu-items">
+            <li><a href="https://www.youtube.com/">YouTube</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li class="gitName"><a href="">GitHub</a></li>
+            <li class="mailName"><a href="">Mail</a></li>
+            <li><a href="https://music.youtube.com/">Music</a></li>
+          </div>
         </div>
-      </div>
-
-      <div class="profile" id="show__account">
-        <button type="button" class="btn btn-primary position-relative">
-          Profile
-          <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-          </span>
-        </button>
       </div>
 
       <div class="dropmenu-form">
@@ -93,9 +88,12 @@
       </section>
     </main>
     <footer>
+      <div class="snowflakeBtn"><span></span></div>
+      <div class="modeBtn"></div>
       <div class="back">
         <a href="/login.html"><i class="fa-solid fa-right-to-bracket fa-2xl"></i></a>
       </div>
+
       <!-- 날씨 -->
       <div class="weather"><span></span><span></span><span></span></div>
       <!-- <div class="background">
