@@ -12305,9 +12305,6 @@ body header .profile {
 body header .nav-container input[type=checkbox]:checked ~ .menu-items {
   transform: translateX(-70%);
 }
-body header .nav-container input[type=checkbox]:checked ~ .hamburger-lines .line {
-  background: whitesmoke;
-}
 body header .nav-container input[type=checkbox]:checked ~ .hamburger-lines .line1 {
   transform: rotate(45deg);
 }
@@ -12500,6 +12497,12 @@ body footer .weather span {
 body footer .weather span:last-child {
   position: absolute;
   bottom: 20px;
+  right: -10px;
+  width: 140px;
+  padding: auto 0;
+}
+
+/*# sourceMappingURL=/styles.b61e60ae.css.map */m: 20px;
   right: -10px;
   width: 140px;
   padding: auto 0;
