@@ -109,6 +109,66 @@ body {
     height: 10vh;
     display: flex;
     align-items: center;
+    .profile i {
+      color: white;
+    }
+    /* .dropmenu-form {
+      visibility: hidden;
+      position: absolute;
+      margin: 20px 0;
+      right: 20px;
+      top: 60px;
+      width: 300px;
+    } */
+    .dropmenu-form {
+      position: fixed;
+      visibility: hidden;
+      right: 20px;
+      top: 70px;
+      width: 350px;
+      height: 500px;
+      margin: 10px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      z-index: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+    }
+    .dropmenu-form span {
+      text-align: center;
+    }
+    .drop-profile {
+      border-bottom: 2px solid white;
+      font-size: 20px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .user-info {
+      padding: 10px;
+      font-size: 30px;
+    }
+    #fixed__name {
+      display: none;
+    }
+    #fixed__git {
+      display: none;
+    }
+    .fixed__input {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: white;
+    }
+    #set__email i {
+      margin: 0px 20px;
+      margin-top: 50px;
+    }
+    .select-icon {
+      color: blue;
+    }
 
     .menuBtn {
       position: fixed;
@@ -223,6 +283,7 @@ body {
 
 //main
 main {
+  padding: 10px;
   display: flex;
   flex-direction: column;
 
@@ -231,7 +292,11 @@ main {
     .todo-input {
       #todo-form {
         display: flex;
-        input {
+        #select-colorBtn {
+          margin-right: 10px;
+        }
+
+        #todo {
           border: 1px solid white;
           outline: none;
           border-radius: 10px;

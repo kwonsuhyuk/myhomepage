@@ -12136,6 +12136,65 @@ body header {
   height: 10vh;
   display: flex;
   align-items: center;
+  /* .dropmenu-form {
+    visibility: hidden;
+    position: absolute;
+    margin: 20px 0;
+    right: 20px;
+    top: 60px;
+    width: 300px;
+  } */
+}
+body header .profile i {
+  color: white;
+}
+body header .dropmenu-form {
+  position: fixed;
+  visibility: hidden;
+  right: 20px;
+  top: 70px;
+  width: 350px;
+  height: 500px;
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+body header .dropmenu-form span {
+  text-align: center;
+}
+body header .drop-profile {
+  border-bottom: 2px solid white;
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+body header .user-info {
+  padding: 10px;
+  font-size: 30px;
+}
+body header #fixed__name {
+  display: none;
+}
+body header #fixed__git {
+  display: none;
+}
+body header .fixed__input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+body header #set__email i {
+  margin: 0px 20px;
+  margin-top: 50px;
+}
+body header .select-icon {
+  color: blue;
 }
 body header .menuBtn {
   position: fixed;
@@ -12236,6 +12295,7 @@ body header .profile {
 }
 
 main {
+  padding: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -12245,12 +12305,15 @@ main .todo {
 main .todo .todo-input #todo-form {
   display: flex;
 }
-main .todo .todo-input #todo-form input {
+main .todo .todo-input #todo-form #select-colorBtn {
+  margin-right: 10px;
+}
+main .todo .todo-input #todo-form #todo {
   border: 1px solid white;
   outline: none;
   border-radius: 10px;
 }
-main .todo .todo-input #todo-form input:focus {
+main .todo .todo-input #todo-form #todo:focus {
   background-color: black;
   color: white;
 }
