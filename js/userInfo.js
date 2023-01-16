@@ -10,7 +10,7 @@ const alertProfile = document.querySelector(".profile button span");
 function onProfile() {
   const lengthData = localStorage.length;
   console.log(localStorage.length);
-  if (lengthData < 3) {
+  if (lengthData < 4) {
     alertProfile.classList.remove("hidden");
   } else {
     for (let i = 0; i < localStorage.length; i++) {
