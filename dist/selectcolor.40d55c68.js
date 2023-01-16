@@ -117,50 +117,58 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/userInfo.js":[function(require,module,exports) {
-// const mainUrl = "https://graceful-palmier-363c5a.netlify.app/";
-var KEY = ["name", "git", "mail"];
-var userGitB = document.querySelector(".gitName a");
-var userMailB = document.querySelector(".mailName a");
-var backToLogin = document.querySelector(".back");
-var alertProfile = document.querySelector(".profile button span");
-
-// 정보유무에 따라 프로필 버튼에 알림 표시
-function onProfile() {
-  var lengthData = localStorage.length;
-  console.log(localStorage.length);
-  if (lengthData < 3) {
-    alertProfile.classList.remove("hidden");
-  } else {
-    for (var i = 0; i < localStorage.length; i++) {
-      var tmp = localStorage.getItem(KEY[i]);
-      if (tmp === null || tmp === undefined || tmp === "") {
-        alertProfile.classList.remove("hidden");
-        break;
-      }
-      alertProfile.classList.add("hidden");
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+  return bundleURL;
+}
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
   }
-  if (alertProfile.classList.contains("hidden")) {
-    alertProfile.style.display = "none";
+  return '/';
+}
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
   }
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+    cssTimeout = null;
+  }, 50);
 }
-
-// 유저 정보 링크에 할당
-function setUserInfo() {
-  var git = localStorage.getItem(KEY[1]);
-  var mail = localStorage.getItem(KEY[2]);
-  userGitB.href = "https://github.com/".concat(git);
-  userMailB.href = mail;
-}
-setUserInfo();
-onProfile();
-
-// 프로필 화면 구성
-// 사용자화 메뉴 버튼 구성
-
-//firebase? ==> 게시판 구성시 180 도 뒤집어서 게시판 보여주는 식으로 ㄴ
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -185,7 +193,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64616" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65384" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
@@ -329,5 +337,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/userInfo.js"], null)
-//# sourceMappingURL=/userInfo.756e3f8b.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/selectcolor.40d55c68.js.map

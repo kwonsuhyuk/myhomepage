@@ -1,13 +1,20 @@
 .profile i {
   color: white;
 }
-.dropmenu-form {
+/* .dropmenu-form {
   visibility: hidden;
   position: absolute;
   margin: 20px 0;
   right: 20px;
   top: 60px;
   width: 300px;
+} */
+.dropmenu-form {
+  position: fixed;
+  visibility: hidden;
+  right: 20px;
+  top: 70px;
+  width: 350px;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   z-index: 1;
@@ -45,6 +52,9 @@
 #set__email i {
   margin: 0px 20px;
   margin-top: 50px;
+}
+.select-icon {
+  color: blue;
 }
 
 

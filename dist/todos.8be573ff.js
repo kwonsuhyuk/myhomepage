@@ -123,6 +123,7 @@ var todoForm = document.getElementById("todo-form");
 var todoInput = document.querySelector("#todo-form input");
 var submitBtn = todoForm.querySelector("button");
 var todoList = document.querySelector(".todo-list");
+var customColor = document.getElementById("select-colorBtn"); //색깔고르기
 var TODOS_KEY = "todos";
 var toDos = [];
 var submitRed = todoForm.querySelector(".btn-red");
@@ -133,14 +134,17 @@ var icon = document.createElement("i");
 icon.setAttribute("class", "fa-solid fa-check fa-2xl");
 submitRed.addEventListener("click", function () {
   postitColor = "red";
+  icon.style.opacity = "1";
   submitRed.appendChild(icon);
 });
 submitBlue.addEventListener("click", function () {
   postitColor = "blue";
+  icon.style.opacity = "1";
   submitBlue.appendChild(icon);
 });
 submitGreen.addEventListener("click", function () {
   postitColor = "green";
+  icon.style.opacity = "1";
   submitGreen.appendChild(icon);
 });
 // 저장
@@ -292,6 +296,12 @@ if (savedToDos !== null) {
   });
 }
 submitBtn.addEventListener("click", handleToDoSubmit);
+customColor.addEventListener("click", function () {
+  icon.style.opacity = "0";
+});
+customColor.addEventListener("change", function (event) {
+  postitColor = event.target.value;
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -317,7 +327,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59496" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64616" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

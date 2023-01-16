@@ -3,7 +3,7 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const submitBtn = todoForm.querySelector("button");
 const todoList = document.querySelector(".todo-list");
-
+const customColor = document.getElementById("select-colorBtn"); //색깔고르기
 const TODOS_KEY = "todos";
 
 let toDos = [];
@@ -17,14 +17,17 @@ icon.setAttribute("class", "fa-solid fa-check fa-2xl");
 
 submitRed.addEventListener("click", () => {
   postitColor = "red";
+  icon.style.opacity = "1";
   submitRed.appendChild(icon);
 });
 submitBlue.addEventListener("click", () => {
   postitColor = "blue";
+  icon.style.opacity = "1";
   submitBlue.appendChild(icon);
 });
 submitGreen.addEventListener("click", () => {
   postitColor = "green";
+  icon.style.opacity = "1";
   submitGreen.appendChild(icon);
 });
 // 저장
@@ -191,3 +194,11 @@ if (savedToDos !== null) {
   });
 }
 submitBtn.addEventListener("click", handleToDoSubmit);
+
+customColor.addEventListener("click", () => {
+  icon.style.opacity = "0";
+});
+
+customColor.addEventListener("change", (event) => {
+  postitColor = event.target.value;
+});
