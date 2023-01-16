@@ -1,12 +1,13 @@
-.profile i{
+.profile i {
   color: white;
 }
-.dropmenu-form{
+.dropmenu-form {
   visibility: hidden;
   position: absolute;
+  margin: 20px 0;
   right: 20px;
   top: 60px;
-  width: 500px;
+  width: 300px;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   z-index: 1;
@@ -14,36 +15,37 @@
   align-items: center;
   justify-content: center;
   height: 500px;
-  color:white
+  color: white;
 }
-.dropmenu-form span{
+.dropmenu-form span {
   text-align: center;
 }
-.drop-profile{
+.drop-profile {
   border-bottom: 2px solid white;
   font-size: 20px;
   margin-bottom: 15px;
   text-align: center;
 }
-.user-info{
+.user-info {
   padding: 10px;
   font-size: 30px;
 }
-#fixed__name{
+#fixed__name {
   display: none;
 }
-#fixed__git{
+#fixed__git {
   display: none;
 }
-.fixed__input{
+.fixed__input {
   border: none;
   outline: none;
   background-color: transparent;
   color: white;
 }
-#set__email i{
+#set__email i {
   margin: 0px 20px;
   margin-top: 50px;
 }
+
 
 /*# sourceMappingURL=/dropmenu.53de516b.css.map */
