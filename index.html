@@ -2,58 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width", initial-scale = 1.0" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
     <script
       src="https://kit.fontawesome.com/9daea03348.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/click.css" />
-    <link rel="stylesheet" href="css/dropmenu.css" />
+
     <title>Home</title>
   </head>
   <body>
-    <div class="notion"></div>
     <div id="clickEffect"></div>
 
     <!-- 상단바 -->
     <header>
-      <div class="menuBtn"></div>
-      <div class="menu-bar">
-        <div class="snowflakeBtn"><span></span></div>
-        <div class="modeBtn"></div>
-        <div class="utils">
-          <ul>
-            <li>
-              <a href="https://music.youtube.com/"
-                ><i class="fa-solid fa-music fa-2xl"></i
-              ></a>
-            </li>
-            <li class="gitName">
-              <a href=""><i class="fa-brands fa-github fa-2xl"></i></a>
-            </li>
-            <li class="mailName">
-              <a href="">
-                <i class="fa-regular fa-envelope fa-2xl"></i>
-              </a>
-            </li>
-          </ul>
+      <div class="navbar">
+        <div class="container nav-container">
+          <input class="checkbox" type="checkbox" name="" id="" />
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <div class="profile" id="show__account">
+            <button type="button" class="btn btn-primary position-relative">
+              Profile
+              <span
+                class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+              </span>
+            </button>
+          </div>
+          <div class="menu-items">
+            <li><a href="https://www.youtube.com/">YouTube</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li class="gitName"><a href="">GitHub</a></li>
+            <li class="mailName"><a href="">Mail</a></li>
+            <li><a href="https://music.youtube.com/">Music</a></li>
+          </div>
         </div>
-      </div>
-
-      <div class="profile" id="show__account">
-        <button type="button" class="btn btn-primary position-relative">
-          Profile
-          <span
-            class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-          >
-          </span>
-        </button>
       </div>
 
       <div class="dropmenu-form">
@@ -67,8 +57,7 @@
               class="fixed__input"
               id="fixed__name"
               type="text"
-              maxlength="12"
-            />
+              maxlength="12" />
           </div>
         </form>
         <form id="drop-profiles__Git">
@@ -94,14 +83,11 @@
       <!-- 시계 -->
       <h2 id="clock">00:00:00</h2>
 
-      <!-- 날씨 -->
-      <div class="weather"><span></span><span></span></div>
-
       <!-- todolist -->
       <section class="todo">
         <div class="todo-input">
           <form id="todo-form">
-            <input type="text" placeholder="write to do" required />
+            <input id="todo" type="text" placeholder="write to do" required />
             <span class="btn-red"></span><span class="btn-blue"></span
             ><span class="btn-green"></span>
             <input type="color" id="select-colorBtn" />
@@ -118,24 +104,39 @@
       </section>
     </main>
     <footer>
+      <div class="snowflakeBtn"><span></span></div>
+      <div class="modeBtn"></div>
       <div class="back">
         <a href="./login.html"
           ><i class="fa-solid fa-right-to-bracket fa-2xl"></i
         ></a>
       </div>
+
+      <!-- 날씨 -->
+      <div class="weather"><span></span><span></span><span></span></div>
+      <!-- <div class="background">
+        <input id="image-input" type="file" style="visibility: hidden" />
+        <button id="image-btn" onclick="fileInputUpload()">
+          <i class="fa-solid fa-image fa-2xl"></i>
+        </button>
+      </div> -->
     </footer>
 
     <!-- script -->
+    <!-- <script>
+      function fileInputUpload() {
+        const fileInput = document.getElementById("image-input");
+        fileInput.click();
+      }
+    </script> -->
+
     <script src="js/snowflake.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/click.js"></script>
     <script src="js/darkmode.js"></script>
-    <script src="js/header.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/userInfo.js"></script>
     <script src="js/todos.js"></script>
-    <!-- <script src="js/todo.js"></script> -->
     <script src="js/dropmenu.js"></script>
-    <!-- <script src="js/login.js"></script> -->
   </body>
 </html>

@@ -121,25 +121,37 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var mode = true;
 var modeBtn = document.querySelector(".modeBtn");
 var backGround = document.body.style.backgroundImage = "URL('https://picsum.photos/1700/1000')";
-modeBtn.textContent = " Change Dark";
+modeBtn.textContent = "Dark";
 modeBtn.addEventListener("click", function () {
   mode = !mode;
   changeMode();
 });
+
+// const imgForm = document.querySelector(".background");
+// const imgChange = document.getElementById("image-input");
+
+// imgChange.onchange = () => {
+//   const file = imgChange.files[0];
+//   console.log(file);
+//   const reader = new FileReader();
+//   reader.readAsDataURL(file);
+//   console.log(URL.createObjectURL(file));
+// };
+
 function changeMode() {
   // 오리지널 상태
   if (mode) {
-    modeBtn.textContent = "Change Dark";
-    modeBtn.style.backgroundColor = "black";
+    modeBtn.textContent = "Dark";
+    modeBtn.style.backgroundColor = "darkslategray";
     modeBtn.style.color = "white";
     document.body.style.backgroundImage = "URL('https://picsum.photos/1700/1000')";
     // dark 상태
   } else {
-    modeBtn.textContent = "Change Image";
+    modeBtn.textContent = "Image";
     document.body.style.backgroundImage = "";
     document.body.style.backgroundColor = "black";
     modeBtn.style.backgroundColor = "white";
-    modeBtn.style.color = "black";
+    modeBtn.style.color = "darkslategray";
   }
 }
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -167,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49721" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -123,7 +123,7 @@ var todoForm = document.getElementById("todo-form");
 var todoInput = document.querySelector("#todo-form input");
 var submitBtn = todoForm.querySelector("button");
 var todoList = document.querySelector(".todo-list");
-var color = document.getElementById("select-colorBtn"); //색깔고르기
+var customColor = document.getElementById("select-colorBtn"); //색깔고르기
 var TODOS_KEY = "todos";
 var toDos = [];
 var submitRed = todoForm.querySelector(".btn-red");
@@ -134,14 +134,17 @@ var icon = document.createElement("i");
 icon.setAttribute("class", "fa-solid fa-check fa-2xl");
 submitRed.addEventListener("click", function () {
   postitColor = "red";
+  icon.style.opacity = "1";
   submitRed.appendChild(icon);
 });
 submitBlue.addEventListener("click", function () {
   postitColor = "blue";
+  icon.style.opacity = "1";
   submitBlue.appendChild(icon);
 });
 submitGreen.addEventListener("click", function () {
   postitColor = "green";
+  icon.style.opacity = "1";
   submitGreen.appendChild(icon);
 });
 // 저장
@@ -187,7 +190,7 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.classList.add("postContainer");
   postContainer.style.position = "absolute";
   if (ifNew) {
-    console.log(initX, initY);
+    // console.log(initX, initY);
     postContainer.style.top = "200px";
     postContainer.style.left = "10px";
   } else {
@@ -223,8 +226,8 @@ function makePostit(newTodoObj, ifNew) {
   function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-    console.log(e.target.parentElement);
-    console.log(e.target.parentElement.getBoundingClientRect());
+    // console.log(e.target.parentElement);
+    // console.log(e.target.parentElement.getBoundingClientRect());
     // content 부분 클릭시 오차 생김
     if (e.target === textLine) {
       initY = e.target.parentElement.getBoundingClientRect().top; // + 25;
@@ -234,18 +237,18 @@ function makePostit(newTodoObj, ifNew) {
       initX = e.target.parentElement.getBoundingClientRect().left;
     }
     var tmpData = JSON.parse(localStorage.getItem(TODOS_KEY));
-    console.log(tmpData);
+    // console.log(tmpData);
     for (var i = 0; i < tmpData.length; i++) {
       if (tmpData[i].id == e.target.id) {
-        console.log("treu");
-        console.log(initX);
-        console.log(initY);
+        // console.log("treu");
+        // console.log(initX);
+        // console.log(initY);
         tmpData[i].xPos = initX;
         tmpData[i].yPos = initY;
       }
     }
     localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
-    console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
+    // console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
     active = false;
   }
   function drag(e) {
@@ -293,11 +296,12 @@ if (savedToDos !== null) {
   });
 }
 submitBtn.addEventListener("click", handleToDoSubmit);
-function onColorChange(event) {
+customColor.addEventListener("click", function () {
+  icon.style.opacity = "0";
+});
+customColor.addEventListener("change", function (event) {
   postitColor = event.target.value;
-  console.log(event.target.value);
-}
-color.addEventListener("change", onColorChange);
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -323,7 +327,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49721" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

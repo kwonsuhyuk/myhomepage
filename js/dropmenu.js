@@ -1,6 +1,6 @@
 const KEY = ["name", "git", "mail"];
 //드롭다운메뉴 자체
-const account  = document.getElementById("show__account");
+const account = document.getElementById("show__account");
 const profile = document.querySelector(".dropmenu-form");
 //드롭다운메뉴 내부
 const settingName = document.querySelector("#setting__name");
@@ -20,95 +20,108 @@ const setNaver = document.getElementById("set-naver");
 const googleMail = new URL("https://mail.google.com/");
 const naverMail = new URL("https://mail.naver.com/");
 //드롭다운메뉴
-function toggleProfile(){
+
+function toggleProfile() {
   // menu` 숨기기 (visibility: hidden)
   //메뉴창이 뜨고 원래 로컬스토리지 안에있는 값 프인트먼저하기
-  if(profile.style.visibility === 'hidden') {
-    profile.style.visibility = 'visible';
+  if (profile.style.visibility === "hidden") {
+    profile.style.visibility = "visible";
     const printname = localStorage.getItem("name");
     const printgit = localStorage.getItem("git");
     accountName.innerText = printname;
     accountGit.innerText = printgit;
     //무슨 이메을 쓰고있는지 표시하기
-    if(localStorage.mail !== "https://mail.google.com/"){
-      setNaver.classList.add('select-icon');
-      setGoogle.classList.remove('select-icon');
-    }else if(localStorage.mail = "https://mail.google.com/"){
-      setGoogle.classList.add('select-icon');
-      setNaver.classList.remove('select-icon');
+    if (localStorage.mail !== "https://mail.google.com/") {
+      setNaver.classList.add("select-icon");
+      setGoogle.classList.remove("select-icon");
+    } else if ((localStorage.mail = "https://mail.google.com/")) {
+      setGoogle.classList.add("select-icon");
+      setNaver.classList.remove("select-icon");
     }
   }
   // menu` 보이기 (visibility: visible)
   else {
-    profile.style.visibility = 'hidden';
+    profile.style.visibility = "hidden";
   }
 }
 //드롭다운메뉴 내부에서 수정하기
 //이름버튼
-function letFixedName(){
-  if(accountName.style.display !== 'none'){
-    accountName.style.display ='none';
-    fixedName.style.display ='block';
-  }
-  else{
-    accountName.style.display ='block';
-    fixedName.style.display ='none';
+function letFixedName() {
+  if (accountName.style.display !== "none") {
+    accountName.style.display = "none";
+    fixedName.style.display = "block";
+  } else {
+    accountName.style.display = "block";
+    fixedName.style.display = "none";
   }
 }
 //이름 수정하기
-function onFixedNameSubmit(event){
-  event.preventDefault(); 
+function onFixedNameSubmit(event) {
+  event.preventDefault();
   const newName = fixedName.value;
-  localStorage.setItem("name", newName);  
+  localStorage.setItem("name", newName);
+  fixedName.value = "";
+  localStorage.setItem("name", newName);
   const greetingName = localStorage.getItem("name");
-  accountName.style.display = 'block';
-  fixedName.style.display ='none';
+  accountName.style.display = "block";
+  fixedName.style.display = "none";
   accountName.innerText = greetingName;
 }
-//깃 버튼 
-function letFixedGit(){
-  if(accountGit.style.display !== 'none'){
-    accountGit.style.display ='none';
-    fixedGit.style.display ='block';
-  }
-  else{
-    accountGit.style.display ='block';
-    fixedGit.style.display ='none';
+//깃 버튼
+function letFixedGit() {
+  if (accountGit.style.display !== "none") {
+    accountGit.style.display = "none";
+    fixedGit.style.display = "block";
+  } else {
+    accountGit.style.display = "block";
+    fixedGit.style.display = "none";
   }
 }
 //깃 수정하기
-function onFixedGitSubmit(event){
-  event.preventDefault(); 
+function onFixedGitSubmit(event) {
+  event.preventDefault();
   const newGit = fixedGit.value;
   localStorage.setItem("git", newGit);
+  fixedGit.value = "";
   const greetingGit = localStorage.getItem("git");
-  accountGit.style.display = 'block';
-  fixedGit.style.display ='none';
+  accountGit.style.display = "block";
+  fixedGit.style.display = "none";
   accountGit.innerText = greetingGit;
   //깃 url 이름 바꾸기
   userGitB.href = `https://github.com/${greetingGit}`;
 }
 //구글 버튼
-function onClcikGoogle(){
-  localStorage.setItem("mail",googleMail);
-  setGoogle.style.color ='blue'
-  setNaver.style.color ='white'
+
+function onClickGoogle() {
+  setGoogle.style.color = "blue";
+  setNaver.style.color = "white";
+  const googleMail = new URL("https://mail.google.com/");
+  localStorage.setItem("mail", googleMail);
 }
 //네이버 버튼
-function onClcikNaver(){
-  localStorage.setItem("mail",naverMail);
-  setGoogle.style.color ='white'
-  setNaver.style.color ='blue'
+function onClickNaver() {
+  setGoogle.style.color = "white";
+  setNaver.style.color = "blue";
+  const googleNaver = new URL("https://mail.naver.com/");
+  localStorage.setItem("mail", googleNaver);
 }
 
+// function onClickGoogle() {
+//   localStorage.setItem("mail", googleMail);
+//   setGoogle.style.color = "blue";
+//   setNaver.style.color = "white";
+// }
+//네이버 버튼
+// function onClickNaver() {
+//   localStorage.setItem("mail", naverMail);
+//   setGoogle.style.color = "white";
+//   setNaver.style.color = "blue";
+// }
 
-
-
-
-account.addEventListener("click",toggleProfile)
-settingName.addEventListener("click", letFixedName)
-settingGit.addEventListener("click", letFixedGit)
-fixedProfilesName.addEventListener("submit", onFixedNameSubmit)
-fixedProfilesGit.addEventListener("submit", onFixedGitSubmit)
-setGoogle.addEventListener("click", onClcikGoogle)
-setNaver.addEventListener("click", onClcikNaver)
+account.addEventListener("click", toggleProfile);
+settingName.addEventListener("click", letFixedName);
+settingGit.addEventListener("click", letFixedGit);
+fixedProfilesName.addEventListener("submit", onFixedNameSubmit);
+fixedProfilesGit.addEventListener("submit", onFixedGitSubmit);
+setGoogle.addEventListener("click", onClickGoogle);
+setNaver.addEventListener("click", onClickNaver);

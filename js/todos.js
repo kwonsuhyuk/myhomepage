@@ -3,7 +3,7 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const submitBtn = todoForm.querySelector("button");
 const todoList = document.querySelector(".todo-list");
-const color = document.getElementById("select-colorBtn"); //색깔고르기
+const customColor = document.getElementById("select-colorBtn"); //색깔고르기
 const TODOS_KEY = "todos";
 
 let toDos = [];
@@ -17,14 +17,17 @@ icon.setAttribute("class", "fa-solid fa-check fa-2xl");
 
 submitRed.addEventListener("click", () => {
   postitColor = "red";
+  icon.style.opacity = "1";
   submitRed.appendChild(icon);
 });
 submitBlue.addEventListener("click", () => {
   postitColor = "blue";
+  icon.style.opacity = "1";
   submitBlue.appendChild(icon);
 });
 submitGreen.addEventListener("click", () => {
   postitColor = "green";
+  icon.style.opacity = "1";
   submitGreen.appendChild(icon);
 });
 // 저장
@@ -69,7 +72,7 @@ function makePostit(newTodoObj, ifNew) {
   postContainer.style.position = "absolute";
 
   if (ifNew) {
-    console.log(initX, initY);
+    // console.log(initX, initY);
     postContainer.style.top = `200px`;
     postContainer.style.left = `10px`;
   } else {
@@ -112,8 +115,8 @@ function makePostit(newTodoObj, ifNew) {
   function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-    console.log(e.target.parentElement);
-    console.log(e.target.parentElement.getBoundingClientRect());
+    // console.log(e.target.parentElement);
+    // console.log(e.target.parentElement.getBoundingClientRect());
     // content 부분 클릭시 오차 생김
     if (e.target === textLine) {
       initY = e.target.parentElement.getBoundingClientRect().top; // + 25;
@@ -123,19 +126,19 @@ function makePostit(newTodoObj, ifNew) {
       initX = e.target.parentElement.getBoundingClientRect().left;
     }
     const tmpData = JSON.parse(localStorage.getItem(TODOS_KEY));
-    console.log(tmpData);
+    // console.log(tmpData);
     for (let i = 0; i < tmpData.length; i++) {
       if (tmpData[i].id == e.target.id) {
-        console.log("treu");
-        console.log(initX);
-        console.log(initY);
+        // console.log("treu");
+        // console.log(initX);
+        // console.log(initY);
         tmpData[i].xPos = initX;
         tmpData[i].yPos = initY;
       }
     }
 
     localStorage.setItem(TODOS_KEY, JSON.stringify(tmpData));
-    console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
+    // console.log(JSON.parse(localStorage.getItem(TODOS_KEY)));
     active = false;
   }
 
@@ -192,10 +195,10 @@ if (savedToDos !== null) {
 }
 submitBtn.addEventListener("click", handleToDoSubmit);
 
+customColor.addEventListener("click", () => {
+  icon.style.opacity = "0";
+});
 
-function onColorChange(event){
+customColor.addEventListener("change", (event) => {
   postitColor = event.target.value;
-  console.log(event.target.value);
-}
-
-color.addEventListener("change", onColorChange);
+});
