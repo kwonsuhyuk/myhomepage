@@ -131,6 +131,10 @@ body {
     .user-info {
       padding: 10px;
       font-size: 30px;
+      i {
+        box-sizing: border-box;
+        cursor: pointer;
+      }
     }
     #fixed__name {
       display: none;
@@ -147,9 +151,6 @@ body {
     #set__email i {
       margin: 0px 20px;
       margin-top: 50px;
-    }
-    .select-icon {
-      color: blue;
     }
 
     .navbar {

@@ -2,6 +2,7 @@ const KEY = ["name", "git", "mail"];
 //드롭다운메뉴 자체
 const account = document.getElementById("show__account");
 const profile = document.querySelector(".dropmenu-form");
+const statusForm = document.getElementById("status-form");
 //드롭다운메뉴 내부
 const settingName = document.querySelector("#setting__name");
 const settingGit = document.querySelector("#setting__git");
@@ -32,11 +33,11 @@ function toggleProfile() {
     accountGit.innerText = printgit;
     //무슨 이메을 쓰고있는지 표시하기
     if (localStorage.mail !== "https://mail.google.com/") {
-      setNaver.classList.add("select-icon");
-      setGoogle.classList.remove("select-icon");
+      setGoogle.style.color = "white";
+      setNaver.style.color = "blue";
     } else if ((localStorage.mail = "https://mail.google.com/")) {
-      setGoogle.classList.add("select-icon");
-      setNaver.classList.remove("select-icon");
+      setGoogle.style.color = "blue";
+      setNaver.style.color = "white";
     }
   }
   // menu` 보이기 (visibility: visible)
@@ -118,6 +119,13 @@ function onClickNaver() {
 //   setNaver.style.color = "blue";
 // }
 
+
+// 메뉴 두번 누르면 없애기  
+function onStatusClick(){
+  profile.style.visibility = "hidden";
+}
+
+
 account.addEventListener("click", toggleProfile);
 settingName.addEventListener("click", letFixedName);
 settingGit.addEventListener("click", letFixedGit);
@@ -125,3 +133,4 @@ fixedProfilesName.addEventListener("submit", onFixedNameSubmit);
 fixedProfilesGit.addEventListener("submit", onFixedGitSubmit);
 setGoogle.addEventListener("click", onClickGoogle);
 setNaver.addEventListener("click", onClickNaver);
+statusForm.addEventListener("dblclick", onStatusClick);

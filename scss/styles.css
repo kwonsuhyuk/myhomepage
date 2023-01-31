@@ -12176,6 +12176,10 @@ body header .user-info {
   padding: 10px;
   font-size: 30px;
 }
+body header .user-info i {
+  box-sizing: border-box;
+  cursor: pointer;
+}
 body header #fixed__name {
   display: none;
 }
@@ -12191,9 +12195,6 @@ body header .fixed__input {
 body header #set__email i {
   margin: 0px 20px;
   margin-top: 50px;
-}
-body header .select-icon {
-  color: blue;
 }
 body header .navbar {
   width: 100%;
@@ -12503,6 +12504,4 @@ body footer .weather span:last-child {
   right: -10px;
   width: 140px;
   padding: auto 0;
-}
-
-/*# sourceMappingURL=/styles.b61e60ae.css.map */
+}/*# sourceMappingURL=styles.css.map */

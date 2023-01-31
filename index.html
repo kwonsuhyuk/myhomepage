@@ -6,11 +6,13 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
     <script
       src="https://kit.fontawesome.com/9daea03348.js"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/click.css" />
 
     <title>Home</title>
@@ -32,7 +34,8 @@
             <button type="button" class="btn btn-primary position-relative">
               Profile
               <span
-                class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+              >
               </span>
             </button>
           </div>
@@ -46,10 +49,11 @@
         </div>
       </div>
 
-      <div class="dropmenu-form">
+      <div class="dropmenu-form" id="status-form">
         <form id="drop-profiles__name">
           <span class="user-info"
-            >Name <i class="fa-solid fa-pen fa-2xs" id="setting__name"></i
+            >Name
+            <i class="fa-solid fa-pen fa-2xs pointer" id="setting__name"></i
           ></span>
           <div class="drop-profile">
             <span id="account__name"></span>
@@ -57,12 +61,14 @@
               class="fixed__input"
               id="fixed__name"
               type="text"
-              maxlength="12" />
+              maxlength="12"
+            />
           </div>
         </form>
         <form id="drop-profiles__Git">
           <span class="user-info"
-            >GitHub <i class="fa-solid fa-pen fa-2xs" id="setting__git"></i
+            >GitHub
+            <i class="fa-solid fa-pen fa-2xs pointer" id="setting__git"></i
           ></span>
           <div class="drop-profile">
             <span id="account__git"></span>
@@ -70,10 +76,12 @@
           </div>
         </form>
         <div id="set__email">
-          <i class="fa-brands fa-google fa-2xl" id="set-google"
+          <i class="fa-brands fa-google fa-2xl pointer" id="set-google"
             ><a href=""></a
           ></i>
-          <i class="fa-solid fa-n fa-2xl" id="set-naver"><a href=""></a></i>
+          <i class="fa-solid fa-n fa-2xl pointer" id="set-naver"
+            ><a href=""></a
+          ></i>
         </div>
       </div>
     </header>
