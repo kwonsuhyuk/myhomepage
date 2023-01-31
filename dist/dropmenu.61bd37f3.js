@@ -122,6 +122,7 @@ var KEY = ["name", "git", "mail"];
 //드롭다운메뉴 자체
 var account = document.getElementById("show__account");
 var profile = document.querySelector(".dropmenu-form");
+var statusForm = document.getElementById("status-form");
 //드롭다운메뉴 내부
 var settingName = document.querySelector("#setting__name");
 var settingGit = document.querySelector("#setting__git");
@@ -152,11 +153,11 @@ function toggleProfile() {
     accountGit.innerText = printgit;
     //무슨 이메을 쓰고있는지 표시하기
     if (localStorage.mail !== "https://mail.google.com/") {
-      setNaver.classList.add("select-icon");
-      setGoogle.classList.remove("select-icon");
+      setGoogle.style.color = "white";
+      setNaver.style.color = "blue";
     } else if (localStorage.mail = "https://mail.google.com/") {
-      setGoogle.classList.add("select-icon");
-      setNaver.classList.remove("select-icon");
+      setGoogle.style.color = "blue";
+      setNaver.style.color = "white";
     }
   }
   // menu` 보이기 (visibility: visible)
@@ -238,6 +239,10 @@ function onClickNaver() {
 //   setNaver.style.color = "blue";
 // }
 
+// 메뉴 두번 누르면 없애기
+function onStatusClick() {
+  profile.style.visibility = "hidden";
+}
 account.addEventListener("click", toggleProfile);
 settingName.addEventListener("click", letFixedName);
 settingGit.addEventListener("click", letFixedGit);
@@ -245,6 +250,7 @@ fixedProfilesName.addEventListener("submit", onFixedNameSubmit);
 fixedProfilesGit.addEventListener("submit", onFixedGitSubmit);
 setGoogle.addEventListener("click", onClickGoogle);
 setNaver.addEventListener("click", onClickNaver);
+statusForm.addEventListener("dblclick", onStatusClick);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -270,7 +276,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49721" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59948" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
@@ -415,4 +421,5 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/dropmenu.js"], null)
+//# sourceMappingURL=/dropmenu.61bd37f3.js.mapnull)
 //# sourceMappingURL=/dropmenu.61bd37f3.js.map
