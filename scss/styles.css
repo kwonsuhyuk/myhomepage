@@ -12176,6 +12176,10 @@ body header .user-info {
   padding: 10px;
   font-size: 30px;
 }
+body header .user-info i {
+  box-sizing: border-box;
+  cursor: pointer;
+}
 body header #fixed__name {
   display: none;
 }

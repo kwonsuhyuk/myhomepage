@@ -239,7 +239,7 @@ function onClickNaver() {
 //   setNaver.style.color = "blue";
 // }
 
-// 메뉴 두번 누르면 없애기
+// 메뉴 두번 누르면 없애기  
 function onStatusClick() {
   profile.style.visibility = "hidden";
 }
@@ -276,7 +276,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59948" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51105" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
@@ -421,5 +421,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/dropmenu.js"], null)
-//# sourceMappingURL=/dropmenu.61bd37f3.js.mapnull)
 //# sourceMappingURL=/dropmenu.61bd37f3.js.map

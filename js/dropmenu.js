@@ -120,7 +120,7 @@ function onClickNaver() {
 // }
 
 
-// 메뉴 두번 누르면 없애기
+// 메뉴 두번 누르면 없애기  
 function onStatusClick(){
   profile.style.visibility = "hidden";
 }

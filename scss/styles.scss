@@ -131,6 +131,10 @@ body {
     .user-info {
       padding: 10px;
       font-size: 30px;
+      i {
+        box-sizing: border-box;
+        cursor: pointer;
+      }
     }
     #fixed__name {
       display: none;
